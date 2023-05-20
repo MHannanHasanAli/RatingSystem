@@ -90,7 +90,8 @@ namespace RatingSystem.Controllers
                             avg += float.Parse(rate.CustomerService) + float.Parse(rate.Expertise) + float.Parse(rate.Professionalism);
                         }
                         float finalavg = avg / counter;
-                        stats.Add(new ratingextra { empName = name, ratingAVG = finalavg });
+                        var empfull = EmployeeServices.Instance.GetEmployeeByName(name);
+                        stats.Add(new ratingextra { empName = name, ratingAVG = finalavg,Employee =empfull });
                     }
                 }
                 else
@@ -108,35 +109,11 @@ namespace RatingSystem.Controllers
                     stats.Add(new ratingextra {Employee=empfull ,empName = name, ratingAVG = finalavg });
 
                 }
-                //var ratingsByEmployee = ratings.GroupBy(r => r.Employee);
-
-                //// Create a list to store the ratings for each employee
-                //List<RatingFull> RatingFullList = new List<RatingFull>();
-
-                //foreach (var group in ratingsByEmployee)
-                //{
-
-                //    // Calculate the average rating for each employee
-                //    int professionalism = group.Sum(r => Convert.ToInt32(r.Professionalism));
-                //    int expertise = group.Sum(r => Convert.ToInt32(r.Expertise));
-                //    int customerservice = group.Sum(r => Convert.ToInt32(r.CustomerService));
-
-                //    // Create an RatingFull object to store the employee's ratings and average
-                //    RatingFull RatingFull = new RatingFull
-                //    {
-
-                //        Employee = EmployeeServices.Instance.GetEmployeeByName(group.Key),
-                //        Ratings = group.ToList(),
-                //        Expertise = expertise,
-                //        CustomerService=customerservice,
-                //        Professionalism=professionalism
-                //    };
-
-                // Add the employee's ratings to the list
+                
 
 
-               model.Statistics = stats;
             }
+            model.Statistics = stats;
             return View(model);
         }
 
