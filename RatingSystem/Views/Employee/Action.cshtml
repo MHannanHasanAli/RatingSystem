@@ -1,0 +1,141 @@
+﻿@model RatingSystem.ViewModels.EmployeeActionViewModel
+@{
+    ViewBag.Title = "Action";
+}
+@if (Model != null)
+{
+<div class="card">
+    <div class="card-body">
+
+        <h5 class="card-title">
+            @if (Model.ID != 0)
+            {
+                <span>Edit Employee</span>
+            }
+            else
+            {
+                <span>Create Employee</span>
+            }
+        </h5>
+
+        <form id="actionForm">
+            <div class="row">
+                <input type="hidden" name="ID" value="@Model.ID" />
+                
+
+                <div class="col-md-4">
+                    <div class="form-group">
+                        <label>Name</label>
+                        <input class="form-control" name="Name" placeholder="Enter Name." value="@Model.Name">
+                    </div>
+                </div>
+
+                <div class="col-md-4">
+                    <div class="form-group">
+                        <label>Team Name</label>
+                        <input class="form-control" name="TeamName" id="TeamName" placeholder="Enter Team Name." value="@Model.TeamName">
+                    </div>
+                </div>
+
+                <div class="col-md-4">
+                    <div class="form-group">
+                        <label>Designation</label>
+                        <input class="form-control" name="Designation" placeholder="Enter Designation." value="@Model.Designation">
+                    </div>
+                </div>
+            </div>
+            
+            
+          
+
+     
+            <div class="row">
+                <div class="col-md-6">
+                    <div class="form-group">
+                        <label>Upload Image</label>
+                        <input class="form-control" value="@Model.Image" name="Image" id="Image" type="hidden" />
+                        <input class="form-control" id="ImageUpload" name="ImageUpload" type="file" />
+                    </div>
+                    <div class="col-md-6">
+                        <div class="form-group">
+                            <label>Preview</label>
+                            <img src="@Model.Image" id="ImageThumb" height="100" width="100" />
+                        </div>
+                    </div>
+                </div>
+
+          
+            </div>
+
+            
+
+        </form>
+
+
+    </div>
+    <div style="background-color:white;" class="card-footer">
+        @if (Model.ID != 0)
+        {
+            <button id="actionButton" type="button" class="btn btn-primary"><i class="fas fa-save mr-1"></i> Update</button>
+        }
+        else
+        {
+            <button id="actionButton" type="button" class="btn btn-primary"><i class="fas fa-save mr-1"></i> Save</button>
+        }
+        <a href="@Url.Action("Index","Employee")" class="btn btn-secondary" ><i class="fas fa-times mr-1"></i> Cancel</a>
+    </div>
+</div>
+}
+
+
+
+<script>
+    $("#ImageUpload").change(function () {
+
+        var element = this;
+        var formData = new FormData();
+        var totalFiles = element.files.length;
+
+        for (var i = 0; i < totalFiles; i++) {
+            var file = element.files[i];
+            formData.append("Image", file);
+        }
+
+        $.ajax({
+            type: 'POST',
+            url: '@Url.Action("UploadImage", "Shared")',
+            data: formData,
+            dataType: 'json',
+            contentType: false,
+            processData: false
+        })
+            .done(function (response) {
+
+                if (response.Success) {
+                    $("#Image").val(response.DocURL);
+                    $("#ImageThumb").attr("src", response.DocURL);
+                }
+
+            })
+            .fail(function (XMLHttpRequest, textStatus, errorThrown) {
+                alert("FAIL");
+            })
+    });
+
+
+
+
+
+    $("#actionButton").click(function () {
+        $.ajax({
+            url: '@Url.Action("Action", "Employee")',
+            type: "post",
+            data: $("#actionForm").serialize()
+        })
+            .done(function () {
+                window.location.href = '@Url.Action("Index", "Employee")';
+            });
+	});
+
+</script>
+

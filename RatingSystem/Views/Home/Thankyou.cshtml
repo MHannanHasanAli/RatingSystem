@@ -1,0 +1,30 @@
+﻿
+@{
+    ViewBag.Title = "Thankyou";
+   
+}
+
+<div class="row">
+    <div class="col-md-12 text-center">
+        <img class="img-fluid" src="~/Content/ratingsystemtemplate/thankyou.png" /><br />
+    </div>
+</div>
+<div class="row text-center">
+    <h1 >Thankyou for your feedback</h1>
+    <br /><br />
+
+
+</div>
+<div class="row">
+    <span>Redirecting to main page.</span>
+
+</div>
+<script>
+    window.onload = function () {
+        setTimeout(function () {
+            // Redirect to the new page
+            window.location.href = '@Url.Action("Index","Home")';
+        }, 2000); // 3000 milliseconds = 3 seconds
+    };
+
+</script>

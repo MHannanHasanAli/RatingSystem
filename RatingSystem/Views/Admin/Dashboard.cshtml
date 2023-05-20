@@ -1,0 +1,86 @@
+﻿@model RatingSystem.ViewModels.AdminViewModel
+@{
+    ViewBag.Title = "Dashboard";
+}
+
+<style>
+
+
+</style>
+<h2>Dashboard - Welcome @Model.SignedInUser.Name</h2>
+
+
+<div class="row">
+    <div class="table-responsive">
+        <table class="table table-striped">
+            <thead>
+                <tr>
+                    <th>
+                        Employee
+                    </th>
+                    <th>
+                        
+                    </th>
+                    <th>
+
+                    </th>
+                </tr>
+            </thead>
+            <tbody>
+                @foreach (var item in Model.Statistics)
+                {
+                    <tr>
+                        <td>
+                           <img src="@item.Employee.Image" style="height:100px;width:100px;" /><br />
+                            @item.Employee.Name
+                        </td>
+                        <td>
+                            <ul>
+                                <li>
+                                    Customer Service: 
+                                </li>
+                                <li>
+                                    Professionalism: 
+                                </li>
+                                <li>
+                                    Expertise: 
+                                </li>
+                            </ul>
+                        </td>
+                        <td>
+                            @Math.Round(item.ratingAVG,1)
+                        </td>
+                    </tr>
+                }
+
+            </tbody>
+        </table>
+    </div>
+</div>
+
+
+
+
+
+
+
+
+
+
+<div class="modal fade" id="actionModal" tabindex="-1" role="dialog">
+    <div class="modal-dialog" role="document">
+    </div>
+</div>
+
+<script>
+    $(".data-btn").click(function () {
+        $.ajax({
+            url: $(this).attr("data-href"),
+        })
+            .done(function (response) {
+                $("#actionModal .modal-dialog").html(response);
+            });
+    });
+
+</script>
+

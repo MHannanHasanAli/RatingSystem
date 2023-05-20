@@ -1,0 +1,130 @@
+﻿
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <title>Rating System</title>
+
+
+    <!-- endinject -->
+    <!-- base:css -->
+
+
+    <link rel="stylesheet" href="~/Content/template/vendors/typicons/typicons.css">
+    <link rel="stylesheet" href="~/Content/template/vendors/css/vendor.bundle.base.css">
+    <link rel="stylesheet" href="~/Content/template/vendors/mdi/css/materialdesignicons.min.css" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" integrity="sha512-iecdLmaskl7CVkqkXNQ/ZH/XLlvWZOJyj7Yy7tcenmpD1ypASozpmT/E0iPtmFIB46ZmdtAc9eNBvH0H/ZpiBw==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <!-- endinject -->
+    <!-- plugin css for this page -->
+    <!-- End plugin css for this page -->
+    <!-- inject:css -->
+    <link rel="stylesheet" href="~/Content/template/css/vertical-layout-light/style.css">
+
+    <link rel="stylesheet" href="//code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css">
+    <!-- endinject -->
+    <link rel="shortcut icon" href="~/Content/template/images/g-icon-15.jpg" />
+
+    <script src="https://code.jquery.com/jquery-3.6.0.js" integrity="sha256-H+K7U5CnXl1h5ywQfKtSj8PCmoN9aaq30gDh27Xc0jk=" crossorigin="anonymous"></script>
+    <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
+
+</head>
+<body>
+    <style>
+        .body {
+            background-color: #F69601;
+        }
+    </style>
+    <div class="container-scroller">
+        <!-- partial:partials/_navbar.html -->
+        
+        <!-- partial -->
+
+        <div class="container-fluid page-body-wrapper">
+            <!-- partial:partials/_settings-panel.html -->
+            
+            
+            <!-- partial -->
+            <!-- partial:partials/_sidebar.html -->
+            @if (User.Identity.IsAuthenticated)
+            {
+            <nav class="sidebar sidebar-offcanvas" id="sidebar">
+                <ul class="nav">
+
+                    <li class="nav-item">
+
+                        <a class="nav-link" href="@Url.Action("", "")">
+                            <i class="typcn typcn-device-desktop menu-icon"></i>
+                            <span class="menu-title">Home</span>
+                        </a>
+                    </li>
+
+                    <li class="nav-item">
+
+                        <a class="nav-link" href="@Url.Action("Index", "Employee")">
+                            <i class="typcn typcn-device-desktop menu-icon"></i>
+                            <span class="menu-title">Employees</span>
+                        </a>
+                    </li>
+
+                    <li class="nav-item">
+
+                        <a href="javascript:document.getElementById('logoutForm').submit()" class="dropdown-item">
+                            <i class="typcn typcn-eject text-secondary"></i>
+                            Logout
+                        </a>
+                    </li>
+
+                </ul>
+
+            </nav>
+            }
+            <!-- partial -->
+            <div class="main-panel">
+                <div class="content-wrapper">
+                    @using (Html.BeginForm("LogOff", "Account", FormMethod.Post, new { id = "logoutForm", @class = "navbar-right" }))
+                    {
+        @Html.AntiForgeryToken()}
+                    @RenderBody()
+                </div>
+                <!-- content-wrapper ends -->
+                <!-- partial:partials/_footer.html -->
+              
+                <!-- partial -->
+            </div>
+            <!-- main-panel ends -->
+        </div>
+
+        <!-- page-body-wrapper ends -->
+    </div>
+    <!-- container-scroller -->
+
+
+
+
+
+    @*<script src="~/Content/template/js/dashboard.js"></script>*@
+
+
+    <!-- base:js -->
+    <script src="~/Content/template/vendors/js/vendor.bundle.base.js"></script>
+    <!-- endinject -->
+    <!-- Plugin js for this page-->
+    <script src="~/Content/template/vendors/chart.js/Chart.min.js"></script>
+    <!-- End plugin js for this page-->
+    <!-- inject:js -->
+    <script src="~/Content/template/js/off-canvas.js"></script>
+    <script src="~/Content/template/js/hoverable-collapse.js"></script>
+    <script src="~/Content/template/js/template.js"></script>
+    <script src="~/Content/template/js/settings.js"></script>
+    <script src="~/Content/template/js/todolist.js"></script>
+    <!-- endinject -->
+    <!-- Custom js for this page-->
+    <!-- End custom js for this page-->
+</body>
+
+</html>
+
