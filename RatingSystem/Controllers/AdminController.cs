@@ -97,16 +97,16 @@ namespace RatingSystem.Controllers
                             professionalism_star += int.Parse(rate.Professionalism);
                             expertise_star += int.Parse(rate.Expertise);
                         }
-                     
-                        float finalavg = avg / counter;
+
+                        float finalavg = (avg / 3) / ratingsOfEmp.Count();
                         ////team rating
                         //total.Add(finalavg);
                         //float teamrating_numenator = total.Sum(x => Convert.ToInt32(x));
                         //float teamrating = teamrating_numenator / total.Count();
                         ////team rating
-                        int customerservice_star2 = customerservice_star / 5;
-                        int professionalism_star2 = professionalism_star / 5;
-                       int expertise_star2 = expertise_star / 5;
+                        int customerservice_star2 = customerservice_star / ratingsOfEmp.Count();
+                        int professionalism_star2 = professionalism_star / ratingsOfEmp.Count();
+                       int expertise_star2 = expertise_star / ratingsOfEmp.Count();
                         ////team rating star
                         //List<int> team_customer_star = new List<int>();
                         //List<int> team_professionalism_star = new List<int>();
@@ -152,15 +152,16 @@ namespace RatingSystem.Controllers
                         expertise_star += int.Parse(rate.Expertise);
                     }
                   
-                    float finalavg = avg / counter;
+                    float finalavg = (avg / 3)/ratingsOfEmp.Count();
+
                     //team rating
                     total.Add(finalavg);
                     float teamrating_numenator = total.Sum(x => Convert.ToInt32(x));
                     float teamrating = teamrating_numenator / total.Count();
                     //team rating
-                    int customerservice_star2 = customerservice_star / 5;
-                    int professionalism_star2 = professionalism_star / 5;
-                    int expertise_star2 = expertise_star / 5;
+                    int customerservice_star2 = customerservice_star / ratingsOfEmp.Count();
+                    int professionalism_star2 = professionalism_star / ratingsOfEmp.Count();
+                    int expertise_star2 = expertise_star / ratingsOfEmp.Count();
                     var empfull = EmployeeServices.Instance.GetEmployeeByName(name);
 
                     stats.Add(new ratingextra { empName = name, ratingAVG = finalavg, teamAVG = teamrating, Employee = empfull, CustomerService_star = customerservice_star2, professionalism_star = professionalism_star2, expertise_star = expertise_star2 });
