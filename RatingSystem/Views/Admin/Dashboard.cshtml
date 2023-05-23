@@ -53,7 +53,7 @@
                         Employee
                     </th>
                     <th>
-                        
+
                     </th>
                     <th>
 
@@ -65,7 +65,7 @@
                 {
                     <tr>
                         <td>
-                           <img src="@item.Employee.Image" style="height:100px;width:100px;" /><br />
+                            <img src="@item.Employee.Image" style="height:100px;width:100px;" /><br />
                             @item.Employee.Name
                         </td>
                         <td>
@@ -75,8 +75,8 @@
                                         <div class="col-3">
                                             Customer Service:
                                         </div>
-                                    
-                                    
+
+
                                         <div class="col-9">
                                             <div id="@item.Employee.ID" class="rating-box">
                                                 <div id="CustomerServiceStars" class="stars">
@@ -137,9 +137,9 @@
                                             </div>
                                         </div>
                                     </div>
-                                    
-                                   
-                                    
+
+
+
                                 </li>
                                 <li>
                                     <div class="row">
@@ -209,14 +209,14 @@
                                         </div>
                                     </div>
 
-                                        
-                                       
-</li>
+
+
+                                </li>
                                 <li>
                                     <div class="row">
                                         <div class="col-3">
                                             Expertise:
-                                            </div>
+                                        </div>
                                         <div class="col-9">
                                             <div id="ExpertiseStars" class="rating-box">
 
@@ -278,15 +278,14 @@
                                                 </div>
                                             </div>
                                         </div>
-                                         </div>   
+                                    </div>
                                 </li>
                             </ul>
                         </td>
                         <td>
-                            @{List<float> teamavg = new List<float>();
-                                teamavg.Add(item.ratingAVG);}
+
                             @Math.Round(item.ratingAVG, 1)
-                            @{}
+
                         </td>
                     </tr>
                 }
@@ -295,6 +294,8 @@
         </table>
     </div>
 </div>
+<br /><br />
+<h1>Team Average</h1><br />
 
 
 

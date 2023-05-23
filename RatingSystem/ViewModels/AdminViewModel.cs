@@ -46,6 +46,9 @@ namespace RatingSystem.ViewModels
         public int professionalism_star { get; set; }
         public int expertise_star { get; set; }
 
+        public int customerTstar { get; set; }
+        public int professionalismTstar { get; set; }
+        public int expertiseTstar { get; set; }
         public float teamAVG { get; set; }
 
     }
