@@ -67,21 +67,41 @@ namespace RatingSystem.Services
 
             using (var context = new DSContext())
             {
-               
 
                 if (type == "Employee")
                 {
-                    return context.Ratings
-                    .Where(x => x.Employee == name && x.Date >= startDate && x.Date <= enddate)
-                    .OrderBy(x => x.ID)
-                    .ToList();
+                    if (name != "")
+                    {
+                        return context.Ratings
+                        .Where(x => x != null && name.ToLower().Contains(x.Employee.ToLower()) && x.Date >= startDate && x.Date <= enddate)
+                        .OrderBy(x => x.ID)
+                        .ToList();
+                    }
+                    else
+                    {
+                        return context.Ratings
+                       .Where(x => x.Date >= startDate && x.Date <= enddate)
+                       .OrderBy(x => x.ID)
+                       .ToList();
+                    }
+                    
                 }
                 else
                 {
-                    return context.Ratings
-                  .Where(x => x.TeamName == name && x.Date >= startDate && x.Date <= enddate)
-                  .OrderBy(x => x.ID)
-                  .ToList();
+                    if (name != "")
+                    {
+                        return context.Ratings
+                        .Where(x => x != null && name.ToLower().Contains(x.TeamName.ToLower()) && x.Date >= startDate && x.Date <= enddate)
+                        .OrderBy(x => x.ID)
+                        .ToList();
+                    }
+                    else
+                    {
+                        return context.Ratings
+                       .Where(x => x.Date >= startDate && x.Date <= enddate)
+                       .OrderBy(x => x.ID)
+                       .ToList();
+                    }
                 }
             }
         }

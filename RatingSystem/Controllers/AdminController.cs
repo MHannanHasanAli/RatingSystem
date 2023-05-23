@@ -66,7 +66,7 @@ namespace RatingSystem.Controllers
             AdminViewModel model = new AdminViewModel();
             var user = UserManager.FindById(User.Identity.GetUserId());
             model.SignedInUser = user;
-            
+
             var ratings = RatingServices.Instance.GetRatingsByDate(DateTime.Now);
 
             List<float> total = new List<float>();
@@ -95,7 +95,7 @@ namespace RatingSystem.Controllers
                         foreach (var rate in ratingsOfEmp)
                         {
                             avg += float.Parse(rate.CustomerService) + float.Parse(rate.Expertise) + float.Parse(rate.Professionalism);
-                            
+
                             customerservice_star += int.Parse(rate.CustomerService);
                             professionalism_star += int.Parse(rate.Professionalism);
                             expertise_star += int.Parse(rate.Expertise);
@@ -105,7 +105,7 @@ namespace RatingSystem.Controllers
 
                         total.Add(finalavg);
                         float teamrating = total.Sum(x => x) / total.Count();
-                       
+
                         int customerservice_star2 = customerservice_star / ratingsOfEmp.Count();
                         int professionalism_star2 = professionalism_star / ratingsOfEmp.Count();
                         int expertise_star2 = expertise_star / ratingsOfEmp.Count();
@@ -114,13 +114,13 @@ namespace RatingSystem.Controllers
                         team_professionalism_star.Add(professionalism_star2);
                         team_expertise_star.Add(expertise_star2);
 
-                        int customer_team_stars = team_customer_star.Sum(x=>x)/team_customer_star.Count();
+                        int customer_team_stars = team_customer_star.Sum(x => x) / team_customer_star.Count();
                         int professionalism_team_stars = team_professionalism_star.Sum(x => x) / team_professionalism_star.Count();
                         int expertise_team_stars = team_expertise_star.Sum(x => x) / team_expertise_star.Count();
 
                         var empfull = EmployeeServices.Instance.GetEmployeeByName(name);
-                        
-                        stats.Add(new ratingextra { empName = name, ratingAVG = finalavg,teamAVG=teamrating,customerTstar=customer_team_stars,professionalismTstar=professionalism_team_stars,expertiseTstar=expertise_team_stars,Employee =empfull, CustomerService_star = customerservice_star2, professionalism_star = professionalism_star2, expertise_star=expertise_star2 });
+
+                        stats.Add(new ratingextra { empName = name, ratingAVG = finalavg, teamAVG = teamrating, customerTstar = customer_team_stars, professionalismTstar = professionalism_team_stars, expertiseTstar = expertise_team_stars, Employee = empfull, CustomerService_star = customerservice_star2, professionalism_star = professionalism_star2, expertise_star = expertise_star2 });
                     }
                 }
                 else
@@ -171,14 +171,12 @@ namespace RatingSystem.Controllers
         [HttpPost]
         public ActionResult Dashboard(DateTime startDate, DateTime enddate, string type, string search_name = "")
         {
-         
+
             AdminViewModel model = new AdminViewModel();
             var user = UserManager.FindById(User.Identity.GetUserId());
             model.SignedInUser = user;
-            return View(model);
+            var ratings = RatingServices.Instance.GetFilteredRatings(startDate, enddate, type, search_name);
 
-            var ratings = RatingServices.Instance.GetFilteredRatings(startDate, enddate , type, search_name );
-           
             List<float> total = new List<float>();
             List<int> team_customer_star = new List<int>();
             List<int> team_professionalism_star = new List<int>();
@@ -278,4 +276,4 @@ namespace RatingSystem.Controllers
     }
 
 
-    }
+}
