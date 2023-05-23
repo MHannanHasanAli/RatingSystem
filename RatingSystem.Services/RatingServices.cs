@@ -60,7 +60,31 @@ namespace RatingSystem.Services
             }
         }
 
+        public List<Rating> GetFilteredRatings(DateTime startDate, DateTime enddate, string type,string name="")
+        {
 
+            DateTime extractedDate = startDate.Date;
+
+            using (var context = new DSContext())
+            {
+               
+
+                if (type == "Employee")
+                {
+                    return context.Ratings
+                    .Where(x => x.Employee == name && x.Date >= startDate && x.Date <= enddate)
+                    .OrderBy(x => x.ID)
+                    .ToList();
+                }
+                else
+                {
+                    return context.Ratings
+                  .Where(x => x.TeamName == name && x.Date >= startDate && x.Date <= enddate)
+                  .OrderBy(x => x.ID)
+                  .ToList();
+                }
+            }
+        }
 
         public List<Rating> GetRatingByEmployee(string Employee)
         {
