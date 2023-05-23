@@ -66,6 +66,7 @@ namespace RatingSystem.Controllers
             AdminViewModel model = new AdminViewModel();
             var user = UserManager.FindById(User.Identity.GetUserId());
             model.SignedInUser = user;
+            
             var ratings = RatingServices.Instance.GetRatingsByDate(DateTime.Now);
             // Group ratings by employee
 
@@ -100,9 +101,9 @@ namespace RatingSystem.Controllers
 
                         float finalavg = (avg / 3) / ratingsOfEmp.Count();
                         ////team rating
-                        //total.Add(finalavg);
-                        //float teamrating_numenator = total.Sum(x => Convert.ToInt32(x));
-                        //float teamrating = teamrating_numenator / total.Count();
+                        total.Add(finalavg);
+                        float teamrating_numenator = total.Sum(x => Convert.ToInt32(x));
+                        float teamrating = teamrating_numenator / total.Count();
                         ////team rating
                         int customerservice_star2 = customerservice_star / ratingsOfEmp.Count();
                         int professionalism_star2 = professionalism_star / ratingsOfEmp.Count();
@@ -130,7 +131,7 @@ namespace RatingSystem.Controllers
                         ////team rating star
                         var empfull = EmployeeServices.Instance.GetEmployeeByName(name);
                         
-                        stats.Add(new ratingextra { empName = name, ratingAVG = finalavg,/*teamAVG=teamrating,*/Employee =empfull, CustomerService_star = customerservice_star2, professionalism_star = professionalism_star2, expertise_star=expertise_star2 });
+                        stats.Add(new ratingextra { empName = name, ratingAVG = finalavg,teamAVG=teamrating,Employee =empfull, CustomerService_star = customerservice_star2, professionalism_star = professionalism_star2, expertise_star=expertise_star2 });
                     }
                 }
                 else
@@ -144,24 +145,23 @@ namespace RatingSystem.Controllers
                     int expertise_star = 0;
                     foreach (var rate in ratingsOfEmp)
                     {
-                        //counter++;
+                        //multiple stars added by different accounts
                         avg += float.Parse(rate.CustomerService) + float.Parse(rate.Expertise) + float.Parse(rate.Professionalism);
-                        
+
                         customerservice_star += int.Parse(rate.CustomerService);
                         professionalism_star += int.Parse(rate.Professionalism);
                         expertise_star += int.Parse(rate.Expertise);
                     }
                   
-                    float finalavg = (avg / 3)/ratingsOfEmp.Count();
-
+                    float finalavg = avg / counter;
                     //team rating
                     total.Add(finalavg);
                     float teamrating_numenator = total.Sum(x => Convert.ToInt32(x));
                     float teamrating = teamrating_numenator / total.Count();
                     //team rating
-                    int customerservice_star2 = customerservice_star / ratingsOfEmp.Count();
-                    int professionalism_star2 = professionalism_star / ratingsOfEmp.Count();
-                    int expertise_star2 = expertise_star / ratingsOfEmp.Count();
+                    int customerservice_star2 = customerservice_star / 5;
+                    int professionalism_star2 = professionalism_star / 5;
+                    int expertise_star2 = expertise_star / 5;
                     var empfull = EmployeeServices.Instance.GetEmployeeByName(name);
 
                     stats.Add(new ratingextra { empName = name, ratingAVG = finalavg, teamAVG = teamrating, Employee = empfull, CustomerService_star = customerservice_star2, professionalism_star = professionalism_star2, expertise_star = expertise_star2 });
