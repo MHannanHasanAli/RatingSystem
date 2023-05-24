@@ -3,6 +3,7 @@
 @{
     ViewBag.Title = "Dashboard";
 }
+@*chart*@
 <div class="text-center">
 
     <div class="card">
@@ -68,6 +69,7 @@
     });
 
 </script>
+@*chart*@
 <style>
     .table th, .table td {
         padding: 0.5rem 0.9375rem;
@@ -764,29 +766,29 @@
 </div>
 <script>
 <div class="text-center">
-            <div class="card">
-                <div class="card-header">
-                    <div class="chart">
-                        <canvas id="doughnutchart"></canvas>
+                    <div class="card">
+                        <div class="card-header">
+                            <div class="chart">
+                                <canvas id="doughnutchart"></canvas>
+                            </div>
+                        </div>
                     </div>
-                </div>
-            </div>
 </div>
 
 <div class="modal fade" id="actionModal" tabindex="-1" role="dialog">
-    <div class="modal-dialog" role="document">
-    </div>
+            <div class="modal-dialog" role="document">
+            </div>
 </div>
 
 <script>
-            $(".data-btn").click(function () {
-                $.ajax({
-                    url: $(this).attr("data-href"),
-                })
-                    .done(function (response) {
-                        $("#actionModal .modal-dialog").html(response);
+                    $(".data-btn").click(function () {
+                        $.ajax({
+                            url: $(this).attr("data-href"),
+                        })
+                            .done(function (response) {
+                                $("#actionModal .modal-dialog").html(response);
+                            });
                     });
-            });
 
 </script>
 
