@@ -164,17 +164,17 @@ namespace RatingSystem.Controllers
                 }
             }
             model.Statistics = stats;
-            if( stats.Count != 0)
+            if (stats.Count != 0)
             {
-                double rating=ratings.Count();
+                double rating = ratings.Count();
                 double fivestar = 0;
                 double fourstar = 0;
                 double threestar = 0;
                 double twostar = 0;
                 double onestar = 0;
-                    foreach(var item in ratings)
+                foreach (var item in ratings)
                 {
-                     if(item.Professionalism == "5" || item.CustomerService=="5" || item.Expertise == "5")
+                    if (item.Professionalism == "5" || item.CustomerService == "5" || item.Expertise == "5")
                     {
                         fivestar++;
                     }
@@ -196,7 +196,7 @@ namespace RatingSystem.Controllers
                     }
                 }
 
-                model.five_star=(fivestar/ratings.Count())*100;
+                model.five_star = (fivestar / ratings.Count()) * 100;
                 model.four_star = (fourstar / ratings.Count()) * 100;
                 model.three_star = (threestar / ratings.Count()) * 100;
                 model.two_star = (twostar / ratings.Count()) * 100;
@@ -209,7 +209,7 @@ namespace RatingSystem.Controllers
         public ActionResult Export()
         {
 
-           var data = RatingServices.Instance.GetRating();
+            var data = RatingServices.Instance.GetRating();
 
 
             StringBuilder csvContent = new StringBuilder();
@@ -337,6 +337,45 @@ namespace RatingSystem.Controllers
                 }
             }
             model.Statistics = stats;
+            if (stats.Count != 0)
+            {
+                double rating = ratings.Count();
+                double fivestar = 0;
+                double fourstar = 0;
+                double threestar = 0;
+                double twostar = 0;
+                double onestar = 0;
+                foreach (var item in ratings)
+                {
+                    if (item.Professionalism == "5" || item.CustomerService == "5" || item.Expertise == "5")
+                    {
+                        fivestar++;
+                    }
+                    else if (item.Professionalism == "4" || item.CustomerService == "4" || item.Expertise == "4")
+                    {
+                        fourstar++;
+                    }
+                    else if (item.Professionalism == "3" || item.CustomerService == "3" || item.Expertise == "3")
+                    {
+                        threestar++;
+                    }
+                    else if (item.Professionalism == "2" || item.CustomerService == "2" || item.Expertise == "2")
+                    {
+                        twostar++;
+                    }
+                    else if (item.Professionalism == "1" || item.CustomerService == "1" || item.Expertise == "1")
+                    {
+                        onestar++;
+                    }
+                }
+
+                model.five_star = (fivestar / ratings.Count()) * 100;
+                model.four_star = (fourstar / ratings.Count()) * 100;
+                model.three_star = (threestar / ratings.Count()) * 100;
+                model.two_star = (twostar / ratings.Count()) * 100;
+                model.one_star = (onestar / ratings.Count()) * 100;
+            }
+
             return View(model);
         }
     }

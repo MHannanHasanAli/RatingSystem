@@ -2,112 +2,6 @@
 @{
     ViewBag.Title = "Dashboard";
 }
-<div class="row">
-    <div class="col-8">
-        <div class="container">
-            <form method="post">
-
-                <div class="row">
-                    <div class="col-4">
-                        <div class="input-group mb-3">
-                            <div class="input-group-prepend">
-                                <span class="input-group-text">Start Date</span>
-                            </div>
-                            <input type="date" class="form-control" id="startDate" name="startDate">
-                        </div>
-                    </div>
-                    <div class="col-4">
-                        <div class="input-group mb-3">
-                            <div class="input-group-prepend">
-                                <span class="input-group-text">End Date</span>
-                            </div>
-                            <input type="date" class="form-control" id="enddate" name="enddate">
-                        </div>
-                    </div>
-                    <div class="col-4">
-
-                        <div class="input-group mb-3">
-                            <div class="input-group-prepend">
-                                <label class="input-group-text" for="type">Type</label>
-                            </div>
-                            <select class="custom-select" id="type" name="type">
-                                <option value="Employee">Employee</option>
-                                <option value="TeamName">Team Name</option>
-                            </select>
-                        </div>
-
-
-                    </div>
-                </div>
-
-                <div class="row">
-                    <div class="col-md-6">
-                        <div class="input-group mb-3">
-                            <input type="text" class="form-control" id="search_name" name="search_name" placeholder="Enter ID or Name">
-                        </div>
-                    </div>
-                    <div class="col-md-6">
-                        <button type="submit" class="btn btn-primary">Search</button>
-                        <a href="@Url.Action("Export","Admin")" class="btn btn-success">Export To CSV</a>
-                    </div>
-                </div>
-
-
-
-
-            </form>
-        </div>
-    </div>
-    <div class="col-4">
-        <table class="table">
-            <tr>
-                <td>5</td>
-                <td>
-                    <div class="progress">
-                        <div class="progress-bar" role="progressbar" style="width: @Model.five_star.ToString()%" aria-valuenow=@Model.five_star.ToString() aria-valuemin="0" aria-valuemax="100">@Model.five_star%</div>
-                    </div>
-                </td>
-            </tr>
-            <tr>
-                <td>4</td>
-
-                <td>
-                    <div class="progress">
-                        <div class="progress-bar" role="progressbar" style="width: @Model.four_star.ToString()%" aria-valuenow=@Model.four_star.ToString() aria-valuemin="0" aria-valuemax="100">@Model.four_star%</div>
-                    </div>
-                </td>
-            </tr>
-            <tr>
-                <td>3</td>
-
-                <td>
-                    <div class="progress">
-                        <div class="progress-bar" role="progressbar" style="width: @Model.three_star.ToString()%" aria-valuenow=@Model.three_star.ToString() aria-valuemin="0" aria-valuemax="100">@Model.three_star%</div>
-                    </div>
-                </td>
-            </tr>
-            <tr>
-                <td>2</td>
-
-                <td>
-                    <div class="progress">
-                        <div class="progress-bar" role="progressbar" style="width: @Model.two_star.ToString()%" aria-valuenow=@Model.two_star.ToString() aria-valuemin="0" aria-valuemax="100">@Model.two_star%</div>
-                    </div>
-                </td>
-            </tr>
-            <tr>
-                <td>1 </td>
-
-                <td>
-                    <div class="progress">
-                        <div class="progress-bar" role="progressbar" style="width: @Model.one_star.ToString()%" aria-valuenow=@Model.one_star.ToString() aria-valuemin="0" aria-valuemax="100">@Model.one_star%</div>
-                    </div>
-                </td>
-            </tr>
-        </table>
-    </div>
-</div>
-
 
 <style>
     .table th, .table td {
@@ -116,6 +10,11 @@
         border-top: 1px solid #f3f3f3;
     }
 
+    .table th, .table td {
+        padding: 0.5rem 0.215rem;
+        vertical-align: top;
+        border-top: 1px solid #f3f3f3;
+    }
     .rating-box {
         padding: 25px 37px;
         border-radius: 25px;
@@ -147,261 +46,391 @@
             transform: scale(1.2);
         }
 </style>
-<h2>Dashboard - Welcome @Model.SignedInUser.Name</h2>
+<div class="row">
+    <div class="col-8">
+        <div class="container">
+            <form method="post">
+
+                <div class="row">
+                    <div class="col-6">
+                        <div class="input-group mb-3">
+                            <div class="input-group-prepend">
+                                <span class="input-group-text">Start Date</span>
+                            </div>
+                            <input type="date" class="form-control" id="startDate" name="startDate">
+                        </div>
+                    </div>
+                    <div class="col-6">
+                        <div class="input-group mb-3">
+                            <div class="input-group-prepend">
+                                <span class="input-group-text">End Date</span>
+                            </div>
+                            <input type="date" class="form-control" id="enddate" name="enddate">
+                        </div>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-6">
+                        <div class="input-group mb-6">
+                            <div class="input-group-prepend">
+                                <label class="input-group-text" for="type">Type</label>
+                            </div>
+                            <select class="form-select col-md-9" id="type" name="type">
+                                <option value="Employee">Employee</option>
+                                <option value="TeamName">Team Name</option>
+                            </select>
+                        </div>
+                    </div>
+                    <div class="col-6">
+                        <div class="input-group mb-3">
+                            <input type="text" class="form-control" id="search_name" name="search_name" placeholder="Enter ID or Name">
+                        </div>
+                        <button type="submit" class="btn btn-primary">Search</button>
+                        <a href="@Url.Action("Export","Admin")" class="btn btn-success">Export To CSV</a>
+                    </div>
+
+
+                </div>
+
+
+
+
+
+            </form>
+        </div>
+    </div>
+
+    <div class="col-4">
+        <table class="table">
+            <tr>
+                <td style="width:20px;">
+                    5
+                    <i style="color: #F7B64B;"  class="fa-solid fa-star active"></i>
+                </td>
+                <td>
+                    <div class="progress">
+                        <div class="progress-bar" role="progressbar" style="width: @Model.five_star.ToString()%" aria-valuenow=@Model.five_star.ToString() aria-valuemin="0" aria-valuemax="100">@Model.five_star%</div>
+                    </div>
+                </td>
+            </tr>
+            <tr>
+                <td style="width:20px;">
+                    4
+                    <i style="color: #F7B64B;"  class="fa-solid fa-star active"></i>
+                </td>
+
+                <td>
+                    <div class="progress">
+                        <div class="progress-bar" role="progressbar" style="width: @Model.four_star.ToString()%" aria-valuenow=@Model.four_star.ToString() aria-valuemin="0" aria-valuemax="100">@Model.four_star%</div>
+                    </div>
+                </td>
+            </tr>
+            <tr>
+                <td style="width:20px;">
+                    3
+                    <i style="color: #F7B64B;"  class="fa-solid fa-star active"></i>
+                </td>
+
+                <td>
+                    <div class="progress">
+                        <div class="progress-bar" role="progressbar" style="width: @Model.three_star.ToString()%" aria-valuenow=@Model.three_star.ToString() aria-valuemin="0" aria-valuemax="100">@Model.three_star%</div>
+                    </div>
+                </td>
+            </tr>
+            <tr>
+                <td style="width:20px;">
+                    2
+                    <i style="color: #F7B64B;" class="fa-solid fa-star active"></i>
+                </td>
+
+                <td>
+                    <div class="progress">
+                        <div class="progress-bar" role="progressbar" style="width: @Model.two_star.ToString()%" aria-valuenow=@Model.two_star.ToString() aria-valuemin="0" aria-valuemax="100">@Model.two_star%</div>
+                    </div>
+                </td>
+            </tr>
+            <tr>
+                <td style="width:20px;">
+                    1
+                    <i style="margin-left: 4px; color: #F7B64B;"  class="fa-solid fa-star active"></i>
+                </td>
+
+                <td>
+                    <div class="progress">
+                        <div class="progress-bar" role="progressbar" style="width: @Model.one_star.ToString()%" aria-valuenow=@Model.one_star.ToString() aria-valuemin="0" aria-valuemax="100">@Model.one_star%</div>
+                    </div>
+                </td>
+            </tr>
+        </table>
+    </div>
+</div>
+
+
+
+<hr />
 
 
 <div class="row">
-    <div class="table-responsive">
-        <table class="table table-striped">
-            <thead>
-                <tr>
-                    <th>
-                        Employee
-                    </th>
-                    <th>
-
-                    </th>
-                    <th>
-
-                    </th>
-                </tr>
-            </thead>
-            <tbody>
-                @if (Model.Statistics != null)
-                {
-                    foreach (var item in Model.Statistics)
-                    {
+    <div class="card col-md-12">
+        <div class="card-body">
+            <div class="table-responsive">
+                <table class="table">
+                    <thead>
                         <tr>
-                            <td>
-                                <img src="@item.Employee.Image" style="height:100px;width:100px;" /><br />
-                                @item.Employee.Name
-                            </td>
-                            <td>
-                                <ul>
-                                    <li>
-                                        <div class="row">
-                                            <div class="col-3">
-                                                Customer Service:
-                                            </div>
+                            <th class="text-center">
 
+                                Employee
+                            </th>
+                            <th>
+                                
+                            </th>
+                            <th>
 
-                                            <div class="col-9">
-                                                <div id="@item.Employee.ID" class="rating-box">
-                                                    <div id="CustomerServiceStars" class="stars">
-                                                        @if (item.CustomerService_star == 1)
-                                                        {
-                                                            <i class="fa-solid fa-star active"></i>
-                                                            <i class="fa-solid fa-star"></i>
-                                                            <i class="fa-solid fa-star"></i>
-                                                            <i class="fa-solid fa-star"></i>
-                                                            <i class="fa-solid fa-star"></i>
-                                                        }
-                                                        else if (item.CustomerService_star == 2)
-                                                        {
-                                                            <i class="fa-solid fa-star active"></i>
-                                                            <i class="fa-solid fa-star active"></i>
-                                                            <i class="fa-solid fa-star"></i>
-                                                            <i class="fa-solid fa-star"></i>
-                                                            <i class="fa-solid fa-star"></i>
-
-                                                        }
-                                                        else if (item.CustomerService_star == 3)
-                                                        {
-                                                            <i class="fa-solid fa-star active"></i>
-                                                            <i class="fa-solid fa-star active"></i>
-                                                            <i class="fa-solid fa-star active"></i>
-                                                            <i class="fa-solid fa-star"></i>
-                                                            <i class="fa-solid fa-star"></i>
-
-                                                        }
-                                                        else if (item.CustomerService_star == 4)
-                                                        {
-                                                            <i class="fa-solid fa-star active"></i>
-                                                            <i class="fa-solid fa-star active"></i>
-                                                            <i class="fa-solid fa-star active"></i>
-                                                            <i class="fa-solid fa-star active"></i>
-                                                            <i class="fa-solid fa-star"></i>
-
-                                                        }
-                                                        else if (item.CustomerService_star == 5)
-                                                        {
-                                                            <i class="fa-solid fa-star active"></i>
-                                                            <i class="fa-solid fa-star active"></i>
-                                                            <i class="fa-solid fa-star active"></i>
-                                                            <i class="fa-solid fa-star active"></i>
-                                                            <i class="fa-solid fa-star active"></i>
-
-                                                        }
-                                                        else if (item.professionalism_star == 0)
-                                                        {
-                                                            <i class="fa-solid fa-star "></i>
-                                                            <i class="fa-solid fa-star "></i>
-                                                            <i class="fa-solid fa-star "></i>
-                                                            <i class="fa-solid fa-star "></i>
-                                                            <i class="fa-solid fa-star "></i>
-
-                                                        }
-                                                    </div>
-                                                </div>
-                                            </div>
-                                        </div>
-
-
-
-                                    </li>
-                                    <li>
-                                        <div class="row">
-                                            <div class="col-3">
-                                                Professionalism:
-                                            </div>
-                                            <div class="col-9">
-                                                <div id="ProfessionalismStars" class="rating-box">
-
-                                                    <div class="stars">
-                                                        @if (item.professionalism_star == 1)
-                                                        {
-                                                            <i class="fa-solid fa-star active"></i>
-                                                            <i class="fa-solid fa-star"></i>
-                                                            <i class="fa-solid fa-star"></i>
-                                                            <i class="fa-solid fa-star"></i>
-                                                            <i class="fa-solid fa-star"></i>
-
-                                                        }
-                                                        else if (item.professionalism_star == 2)
-                                                        {
-                                                            <i class="fa-solid fa-star active"></i>
-                                                            <i class="fa-solid fa-star active"></i>
-                                                            <i class="fa-solid fa-star"></i>
-                                                            <i class="fa-solid fa-star"></i>
-                                                            <i class="fa-solid fa-star"></i>
-
-                                                        }
-                                                        else if (item.professionalism_star == 3)
-                                                        {
-                                                            <i class="fa-solid fa-star active"></i>
-                                                            <i class="fa-solid fa-star active"></i>
-                                                            <i class="fa-solid fa-star active"></i>
-                                                            <i class="fa-solid fa-star"></i>
-                                                            <i class="fa-solid fa-star"></i>
-
-                                                        }
-                                                        else if (item.professionalism_star == 4)
-                                                        {
-                                                            <i class="fa-solid fa-star active"></i>
-                                                            <i class="fa-solid fa-star active"></i>
-                                                            <i class="fa-solid fa-star active"></i>
-                                                            <i class="fa-solid fa-star active"></i>
-                                                            <i class="fa-solid fa-star"></i>
-
-                                                        }
-                                                        else if (item.professionalism_star == 5)
-                                                        {
-                                                            <i class="fa-solid fa-star active"></i>
-                                                            <i class="fa-solid fa-star active"></i>
-                                                            <i class="fa-solid fa-star active"></i>
-                                                            <i class="fa-solid fa-star active"></i>
-                                                            <i class="fa-solid fa-star active"></i>
-
-                                                        }
-                                                        else if (item.professionalism_star == 0)
-                                                        {
-                                                            <i class="fa-solid fa-star "></i>
-                                                            <i class="fa-solid fa-star "></i>
-                                                            <i class="fa-solid fa-star "></i>
-                                                            <i class="fa-solid fa-star "></i>
-                                                            <i class="fa-solid fa-star "></i>
-
-                                                        }
-                                                    </div>
-                                                </div>
-                                            </div>
-                                        </div>
-
-
-
-                                    </li>
-                                    <li>
-                                        <div class="row">
-                                            <div class="col-3">
-                                                Expertise:
-                                            </div>
-                                            <div class="col-9">
-                                                <div id="ExpertiseStars" class="rating-box">
-
-                                                    <div class="stars">
-                                                        @if (item.expertise_star == 1)
-                                                        {
-                                                            <i class="fa-solid fa-star active"></i>
-                                                            <i class="fa-solid fa-star"></i>
-                                                            <i class="fa-solid fa-star"></i>
-                                                            <i class="fa-solid fa-star"></i>
-                                                            <i class="fa-solid fa-star"></i>
-
-                                                        }
-                                                        else if (item.expertise_star == 2)
-                                                        {
-                                                            <i class="fa-solid fa-star active"></i>
-                                                            <i class="fa-solid fa-star active"></i>
-                                                            <i class="fa-solid fa-star"></i>
-                                                            <i class="fa-solid fa-star"></i>
-                                                            <i class="fa-solid fa-star"></i>
-
-                                                        }
-                                                        else if (item.expertise_star == 3)
-                                                        {
-                                                            <i class="fa-solid fa-star active"></i>
-                                                            <i class="fa-solid fa-star active"></i>
-                                                            <i class="fa-solid fa-star active"></i>
-                                                            <i class="fa-solid fa-star"></i>
-                                                            <i class="fa-solid fa-star"></i>
-
-                                                        }
-                                                        else if (item.expertise_star == 4)
-                                                        {
-                                                            <i class="fa-solid fa-star active"></i>
-                                                            <i class="fa-solid fa-star active"></i>
-                                                            <i class="fa-solid fa-star active"></i>
-                                                            <i class="fa-solid fa-star active"></i>
-                                                            <i class="fa-solid fa-star"></i>
-
-                                                        }
-                                                        else if (item.expertise_star == 5)
-                                                        {
-                                                            <i class="fa-solid fa-star active"></i>
-                                                            <i class="fa-solid fa-star active"></i>
-                                                            <i class="fa-solid fa-star active"></i>
-                                                            <i class="fa-solid fa-star active"></i>
-                                                            <i class="fa-solid fa-star active"></i>
-
-                                                        }
-                                                        else if (item.professionalism_star == 0)
-                                                        {
-                                                            <i class="fa-solid fa-star "></i>
-                                                            <i class="fa-solid fa-star "></i>
-                                                            <i class="fa-solid fa-star "></i>
-                                                            <i class="fa-solid fa-star "></i>
-                                                            <i class="fa-solid fa-star "></i>
-
-                                                        }
-                                                    </div>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </li>
-                                </ul>
-                            </td>
-                            <td>
-
-                                @Math.Round(item.ratingAVG, 1)
-
-                            </td>
+                            </th>
                         </tr>
-                    }
-                }
+                    </thead>
+                    <tbody>
+                        @if (Model.Statistics != null)
+                        {
+                            foreach (var item in Model.Statistics)
+                            {
+                                <tr>
+                                    <td class="text-center">
+                                        <img src="@item.Employee.Image" style="height:100px;width:100px;" /><br />
+                                        @item.Employee.Name
+                                    </td>
+                                    <td>
+                                        <ul>
+                                            <li>
+                                                <div class="row">
+                                                    <div style="padding-top:20px;" class="col-3">
+                                                        Customer Service:
+                                                    </div>
 
-            </tbody>
-        </table>
+
+                                                    <div class="col-9">
+                                                        <div id="@item.Employee.ID" class="rating-box">
+                                                            <div id="CustomerServiceStars" class="stars">
+                                                                @if (item.CustomerService_star == 1)
+                                                                {
+                                                                    <i class="fa-solid fa-star active"></i>
+                                                                    <i class="fa-solid fa-star"></i>
+                                                                    <i class="fa-solid fa-star"></i>
+                                                                    <i class="fa-solid fa-star"></i>
+                                                                    <i class="fa-solid fa-star"></i>
+                                                                }
+                                                                else if (item.CustomerService_star == 2)
+                                                                {
+                                                                    <i class="fa-solid fa-star active"></i>
+                                                                    <i class="fa-solid fa-star active"></i>
+                                                                    <i class="fa-solid fa-star"></i>
+                                                                    <i class="fa-solid fa-star"></i>
+                                                                    <i class="fa-solid fa-star"></i>
+
+                                                                }
+                                                                else if (item.CustomerService_star == 3)
+                                                                {
+                                                                    <i class="fa-solid fa-star active"></i>
+                                                                    <i class="fa-solid fa-star active"></i>
+                                                                    <i class="fa-solid fa-star active"></i>
+                                                                    <i class="fa-solid fa-star"></i>
+                                                                    <i class="fa-solid fa-star"></i>
+
+                                                                }
+                                                                else if (item.CustomerService_star == 4)
+                                                                {
+                                                                    <i class="fa-solid fa-star active"></i>
+                                                                    <i class="fa-solid fa-star active"></i>
+                                                                    <i class="fa-solid fa-star active"></i>
+                                                                    <i class="fa-solid fa-star active"></i>
+                                                                    <i class="fa-solid fa-star"></i>
+
+                                                                }
+                                                                else if (item.CustomerService_star == 5)
+                                                                {
+                                                                    <i class="fa-solid fa-star active"></i>
+                                                                    <i class="fa-solid fa-star active"></i>
+                                                                    <i class="fa-solid fa-star active"></i>
+                                                                    <i class="fa-solid fa-star active"></i>
+                                                                    <i class="fa-solid fa-star active"></i>
+
+                                                                }
+                                                                else if (item.professionalism_star == 0)
+                                                                {
+                                                                    <i class="fa-solid fa-star "></i>
+                                                                    <i class="fa-solid fa-star "></i>
+                                                                    <i class="fa-solid fa-star "></i>
+                                                                    <i class="fa-solid fa-star "></i>
+                                                                    <i class="fa-solid fa-star "></i>
+
+                                                                }
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+
+
+
+                                            </li>
+                                            <li>
+                                                <div class="row">
+                                                    <div style="padding-top:20px;" class="col-3">
+                                                        Professionalism:
+                                                    </div>
+                                                    <div class="col-9">
+                                                        <div id="ProfessionalismStars" class="rating-box">
+
+                                                            <div class="stars">
+                                                                @if (item.professionalism_star == 1)
+                                                                {
+                                                                    <i class="fa-solid fa-star active"></i>
+                                                                    <i class="fa-solid fa-star"></i>
+                                                                    <i class="fa-solid fa-star"></i>
+                                                                    <i class="fa-solid fa-star"></i>
+                                                                    <i class="fa-solid fa-star"></i>
+
+                                                                }
+                                                                else if (item.professionalism_star == 2)
+                                                                {
+                                                                    <i class="fa-solid fa-star active"></i>
+                                                                    <i class="fa-solid fa-star active"></i>
+                                                                    <i class="fa-solid fa-star"></i>
+                                                                    <i class="fa-solid fa-star"></i>
+                                                                    <i class="fa-solid fa-star"></i>
+
+                                                                }
+                                                                else if (item.professionalism_star == 3)
+                                                                {
+                                                                    <i class="fa-solid fa-star active"></i>
+                                                                    <i class="fa-solid fa-star active"></i>
+                                                                    <i class="fa-solid fa-star active"></i>
+                                                                    <i class="fa-solid fa-star"></i>
+                                                                    <i class="fa-solid fa-star"></i>
+
+                                                                }
+                                                                else if (item.professionalism_star == 4)
+                                                                {
+                                                                    <i class="fa-solid fa-star active"></i>
+                                                                    <i class="fa-solid fa-star active"></i>
+                                                                    <i class="fa-solid fa-star active"></i>
+                                                                    <i class="fa-solid fa-star active"></i>
+                                                                    <i class="fa-solid fa-star"></i>
+
+                                                                }
+                                                                else if (item.professionalism_star == 5)
+                                                                {
+                                                                    <i class="fa-solid fa-star active"></i>
+                                                                    <i class="fa-solid fa-star active"></i>
+                                                                    <i class="fa-solid fa-star active"></i>
+                                                                    <i class="fa-solid fa-star active"></i>
+                                                                    <i class="fa-solid fa-star active"></i>
+
+                                                                }
+                                                                else if (item.professionalism_star == 0)
+                                                                {
+                                                                    <i class="fa-solid fa-star "></i>
+                                                                    <i class="fa-solid fa-star "></i>
+                                                                    <i class="fa-solid fa-star "></i>
+                                                                    <i class="fa-solid fa-star "></i>
+                                                                    <i class="fa-solid fa-star "></i>
+
+                                                                }
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+
+
+
+                                            </li>
+                                            <li>
+                                                <div class="row">
+                                                    <div style="padding-top:20px;" class="col-3">
+                                                        Expertise:
+                                                    </div>
+                                                    <div class="col-9">
+                                                        <div id="ExpertiseStars" class="rating-box">
+
+                                                            <div class="stars">
+                                                                @if (item.expertise_star == 1)
+                                                                {
+                                                                    <i class="fa-solid fa-star active"></i>
+                                                                    <i class="fa-solid fa-star"></i>
+                                                                    <i class="fa-solid fa-star"></i>
+                                                                    <i class="fa-solid fa-star"></i>
+                                                                    <i class="fa-solid fa-star"></i>
+
+                                                                }
+                                                                else if (item.expertise_star == 2)
+                                                                {
+                                                                    <i class="fa-solid fa-star active"></i>
+                                                                    <i class="fa-solid fa-star active"></i>
+                                                                    <i class="fa-solid fa-star"></i>
+                                                                    <i class="fa-solid fa-star"></i>
+                                                                    <i class="fa-solid fa-star"></i>
+
+                                                                }
+                                                                else if (item.expertise_star == 3)
+                                                                {
+                                                                    <i class="fa-solid fa-star active"></i>
+                                                                    <i class="fa-solid fa-star active"></i>
+                                                                    <i class="fa-solid fa-star active"></i>
+                                                                    <i class="fa-solid fa-star"></i>
+                                                                    <i class="fa-solid fa-star"></i>
+
+                                                                }
+                                                                else if (item.expertise_star == 4)
+                                                                {
+                                                                    <i class="fa-solid fa-star active"></i>
+                                                                    <i class="fa-solid fa-star active"></i>
+                                                                    <i class="fa-solid fa-star active"></i>
+                                                                    <i class="fa-solid fa-star active"></i>
+                                                                    <i class="fa-solid fa-star"></i>
+
+                                                                }
+                                                                else if (item.expertise_star == 5)
+                                                                {
+                                                                    <i class="fa-solid fa-star active"></i>
+                                                                    <i class="fa-solid fa-star active"></i>
+                                                                    <i class="fa-solid fa-star active"></i>
+                                                                    <i class="fa-solid fa-star active"></i>
+                                                                    <i class="fa-solid fa-star active"></i>
+
+                                                                }
+                                                                else if (item.professionalism_star == 0)
+                                                                {
+                                                                    <i class="fa-solid fa-star "></i>
+                                                                    <i class="fa-solid fa-star "></i>
+                                                                    <i class="fa-solid fa-star "></i>
+                                                                    <i class="fa-solid fa-star "></i>
+                                                                    <i class="fa-solid fa-star "></i>
+
+                                                                }
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </li>
+                                        </ul>
+                                    </td>
+                                    <td>
+                                        <h1 style="color:dodgerblue;padding-top:60px;">
+                                            <b>
+                                                @Math.Round(item.ratingAVG, 1)
+                                            </b>
+                                        </h1>
+
+                                    </td>
+                                </tr>
+                            }
+                        }
+
+                    </tbody>
+                </table>
+            </div>
+        </div>
     </div>
+    
 </div>
 
 <br />
