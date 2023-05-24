@@ -10,6 +10,7 @@ using System.Web;
 using System.Web.Mvc;
 using Microsoft.Ajax.Utilities;
 using System.Web.WebPages;
+using System.Text;
 
 namespace RatingSystem.Controllers
 {
@@ -163,11 +164,76 @@ namespace RatingSystem.Controllers
                 }
             }
             model.Statistics = stats;
+            if( stats.Count != 0)
+            {
+                double rating=ratings.Count();
+                double fivestar = 0;
+                double fourstar = 0;
+                double threestar = 0;
+                double twostar = 0;
+                double onestar = 0;
+                    foreach(var item in ratings)
+                {
+                     if(item.Professionalism == "5" || item.CustomerService=="5" || item.Expertise == "5")
+                    {
+                        fivestar++;
+                    }
+                    else if (item.Professionalism == "4" || item.CustomerService == "4" || item.Expertise == "4")
+                    {
+                        fourstar++;
+                    }
+                    else if (item.Professionalism == "3" || item.CustomerService == "3" || item.Expertise == "3")
+                    {
+                        threestar++;
+                    }
+                    else if (item.Professionalism == "2" || item.CustomerService == "2" || item.Expertise == "2")
+                    {
+                        twostar++;
+                    }
+                    else if (item.Professionalism == "1" || item.CustomerService == "1" || item.Expertise == "1")
+                    {
+                        onestar++;
+                    }
+                }
+
+                model.five_star=(fivestar/ratings.Count())*100;
+                model.four_star = (fourstar / ratings.Count()) * 100;
+                model.three_star = (threestar / ratings.Count()) * 100;
+                model.two_star = (twostar / ratings.Count()) * 100;
+                model.one_star = (onestar / ratings.Count()) * 100;
+            }
             return View(model);
         }
 
 
+        public ActionResult Export()
+        {
 
+           var data = RatingServices.Instance.GetRating();
+
+
+            StringBuilder csvContent = new StringBuilder();
+
+            // Add table headers to CSV content
+            csvContent.AppendLine("Employee,Team Name,Customer Service, Professionalism, Expertise");
+
+            // Add table rows from the view to CSV content
+            foreach (var item in data)
+            {
+
+                csvContent.AppendLine($"{item.Employee},{item.TeamName},{item.CustomerService},{item.Professionalism},{item.Expertise}");
+            }
+
+            // Set response headers
+            Response.ContentType = "text/csv";
+            Response.AddHeader("Content-Disposition", "attachment; filename=ratingsdata.csv");
+
+            // Write CSV content to the response
+            Response.Write(csvContent.ToString());
+            Response.End();
+
+            return null;
+        }
         [HttpPost]
         public ActionResult Dashboard(DateTime startDate, DateTime enddate, string type, string search_name = "")
         {

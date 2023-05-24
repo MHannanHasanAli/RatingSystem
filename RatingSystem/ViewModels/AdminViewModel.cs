@@ -18,6 +18,13 @@ namespace RatingSystem.ViewModels
         public string Contact { get; set; }
         public string SearchTerm { get; set; }
 
+        public double one_star { get; set; }
+        public double two_star { get; set; }
+        public double three_star { get; set; }
+        public double four_star { get; set; }
+        public double five_star { get; set; }
+
+
 
         public List<ratingextra> Statistics { get; set; }
 
