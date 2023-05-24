@@ -24,11 +24,14 @@ namespace RatingSystem.ViewModels
         public double four_star { get; set; }
         public double five_star { get; set; }
 
-
+   
+        public List<double> Value = new List<double>();
 
         public List<ratingextra> Statistics { get; set; }
 
     }
+
+ 
 
     public class RatingFull
     {

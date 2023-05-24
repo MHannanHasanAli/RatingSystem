@@ -19,6 +19,8 @@ namespace RatingSystem.Controllers
         private AMSignInManager _signInManager;
         private AMRolesManager _rolesManager;
         private AMUserManager _userManager;
+
+        
         public AMUserManager UserManager
         {
             get
@@ -68,8 +70,7 @@ namespace RatingSystem.Controllers
             var user = UserManager.FindById(User.Identity.GetUserId());
             model.SignedInUser = user;
 
-            var ratings = RatingServices.Instance.GetRatingsByDate(DateTime.Now);
-
+            var ratings = RatingServices.Instance.GetRatingsByDate(DateTime.Now);           
             List<float> total = new List<float>();
             List<int> team_customer_star = new List<int>();
             List<int> team_professionalism_star = new List<int>();
@@ -195,6 +196,12 @@ namespace RatingSystem.Controllers
                         onestar++;
                     }
                 }
+
+                model.Value.Add(fivestar);
+                model.Value.Add(fourstar);
+                model.Value.Add(threestar);
+                model.Value.Add(twostar);
+                model.Value.Add(onestar);
 
                 model.five_star = (fivestar / ratings.Count()) * 100;
                 model.four_star = (fourstar / ratings.Count()) * 100;
@@ -369,6 +376,11 @@ namespace RatingSystem.Controllers
                     }
                 }
 
+                model.Value.Add(fivestar);
+                model.Value.Add(fourstar);
+                model.Value.Add(threestar);
+                model.Value.Add(twostar);
+                model.Value.Add(onestar);
                 model.five_star = (fivestar / ratings.Count()) * 100;
                 model.four_star = (fourstar / ratings.Count()) * 100;
                 model.three_star = (threestar / ratings.Count()) * 100;
