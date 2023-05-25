@@ -83,18 +83,30 @@
             </nav>
             }
             <!-- partial -->
-            <div class="main-panel">
+
+        <div class="main-panel">
+            @if (!User.Identity.IsAuthenticated)
+            {
+                <div style="margin-left:100px;" class="content-wrapper">
+                    @using (Html.BeginForm("LogOff", "Account", FormMethod.Post, new { id = "logoutForm", @class = "navbar-right" }))
+                    {
+                        @Html.AntiForgeryToken()}
+                    @RenderBody()
+                </div>
+            }
+            else
+            {
                 <div class="content-wrapper">
                     @using (Html.BeginForm("LogOff", "Account", FormMethod.Post, new { id = "logoutForm", @class = "navbar-right" }))
                     {
-        @Html.AntiForgeryToken()}
+                        @Html.AntiForgeryToken()}
                     @RenderBody()
                 </div>
-                <!-- content-wrapper ends -->
-                <!-- partial:partials/_footer.html -->
-              
-                <!-- partial -->
-            </div>
+            }
+            <!-- content-wrapper ends -->
+            <!-- partial:partials/_footer.html -->
+            <!-- partial -->
+        </div>
             <!-- main-panel ends -->
         </div>
 

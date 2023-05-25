@@ -3,46 +3,51 @@
     ViewBag.Title = "Thankyou";
 
 }
-@*<style>
+<style>
     #logo {
-        height: 100px;
-        width: 120px;
+        width: 300px;
     }
-</style>*@
+    .img-fluid {
+        max-width: 150%;
+        height: auto;
+    }
+</style>
 
 <div class="row">
-    <table>
-        <tr>
-            <td>
-                <img class="img-fluid" id="logo" src="~/Content/ratingsystemtemplate/EpsaNew.jpg" /><br /><br /><br />
-            </td>
-            <td>
-                <div class="col-md-12 text-center">
+    <div class="col-6">
+        <img class="img-fluid" id="logo" src="~/Content/ratingsystemtemplate/EpsaNew.jpg" />
 
-                    <img class="img-fluid" src="~/Content/ratingsystemtemplate/thankyou.png" /><br />
-                </div>
-</div>
-<div class="row text-center">
-    <h1>Thankyou for your feedback</h1>
-    </td>
-    </tr>
-    </table>
-
-
-    <br /><br />
-
+    </div>
+    <div class="col-6">
+        <img class="img-fluid" src="~/Content/ratingsystemtemplate/thankyou.png" />
+    </div>
+  
 
 </div>
 <div class="row">
-    <span>Redirecting to main page.</span>
+    <div class="col-3">
 
+    </div>
+    <div class="col-6">
+        <h1 style="white-space:nowrap;">Thankyou for your feedback</h1>
+        <img class="img-fluid" src="~/Content/ratingsystemtemplate/OPT 1 All Values.png" />
+
+    </div>
 </div>
+
+
+
 <script>
    $(document).ready(function() {
-    setTimeout(function() {
-        // Redirect to the new page
-        window.location.href = '@Url.Action("Index","Home")';
-    }, 2000); // 2000 milliseconds = 2 seconds
+       redirectAfterDelay();
 });
+
+    function redirectAfterDelay() {
+        document.addEventListener('click', function () {
+            setTimeout(function () {
+                window.location.href = '@Url.Action("Index","Home")';
+            }, 2000);
+        });
+    }
 
 </script>
