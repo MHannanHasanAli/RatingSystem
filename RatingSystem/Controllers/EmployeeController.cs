@@ -42,13 +42,22 @@ namespace RatingSystem.Controllers
         {
             if(model.ID != 0) 
             {
+
                 var employee = EmployeeServices.Instance.GetEmployee(model.ID);
+                var rating = RatingServices.Instance.GetRatingByEmployee(employee.Name);
+                foreach (var item in rating)
+                {
+                    item.Employee = model.Name;
+                    RatingServices.Instance.UpdateRating(item);
+                }
                 employee.ID = model.ID;
                 employee.Name = model.Name;
                 employee.Designation = model.Designation;
                 employee.TeamName = model.TeamName;
                 employee.Image = model.Image;
                 EmployeeServices.Instance.UpdateEmployee(employee);
+
+                
             }
             else
             {

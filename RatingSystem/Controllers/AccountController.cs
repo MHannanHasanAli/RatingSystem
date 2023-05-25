@@ -530,10 +530,10 @@ namespace RatingSystem.Controllers
                 return RedirectToAction("Dashboard", "Admin");
 
             }
-            else if (UserManager.IsInRole(userID, "Copywriter") == true)
-            {
-                return RedirectToAction("Dashboard", "Copywriter");
-            }
+            //else if (UserManager.IsInRole(userID, "Copywriter") == true)
+            //{
+            //    return RedirectToAction("Dashboard", "Copywriter");
+            //}
             else
             {
                 return RedirectToAction("", "");

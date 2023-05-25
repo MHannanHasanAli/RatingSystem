@@ -4,17 +4,83 @@
     ViewBag.Title = "Dashboard";
 }
 @*chart*@
-<div class="text-center">
+<div class="row">
+    <div class="col-6">
+        <div class="text-center">
 
-    <div class="card">
-        <div class="card-header">
-            <div class="chart">
-                <canvas id="doughnutchart"></canvas>
+            <div class="card">
+                <div class="card-header">
+                    <div class="chart">
+                        <canvas id="doughnutchart"></canvas>
+                    </div>
+                </div>
             </div>
         </div>
     </div>
-</div>
+    <div class="col-6">
+        <table class="table">
+            <tr>
+                <td style="width:20px;">
+                    5
+                    <i style="color: #F7B64B;" class="fa-solid fa-star active"></i>
+                </td>
+                <td>
+                    <div class="progress">
+                        <div class="progress-bar" role="progressbar" style="width: @Model.five_star.ToString()%" aria-valuenow=@Model.five_star.ToString() aria-valuemin="0" aria-valuemax="100">@Model.five_star%</div>
+                    </div>
+                </td>
+            </tr>
+            <tr>
+                <td style="width:20px;">
+                    4
+                    <i style="color: #F7B64B;" class="fa-solid fa-star active"></i>
+                </td>
 
+                <td>
+                    <div class="progress">
+                        <div class="progress-bar" role="progressbar" style="width: @Model.four_star.ToString()%" aria-valuenow=@Model.four_star.ToString() aria-valuemin="0" aria-valuemax="100">@Model.four_star%</div>
+                    </div>
+                </td>
+            </tr>
+            <tr>
+                <td style="width:20px;">
+                    3
+                    <i style="color: #F7B64B;" class="fa-solid fa-star active"></i>
+                </td>
+
+                <td>
+                    <div class="progress">
+                        <div class="progress-bar" role="progressbar" style="width: @Model.three_star.ToString()%" aria-valuenow=@Model.three_star.ToString() aria-valuemin="0" aria-valuemax="100">@Model.three_star%</div>
+                    </div>
+                </td>
+            </tr>
+            <tr>
+                <td style="width:20px;">
+                    2
+                    <i style="color: #F7B64B;" class="fa-solid fa-star active"></i>
+                </td>
+
+                <td>
+                    <div class="progress">
+                        <div class="progress-bar" role="progressbar" style="width: @Model.two_star.ToString()%" aria-valuenow=@Model.two_star.ToString() aria-valuemin="0" aria-valuemax="100">@Model.two_star%</div>
+                    </div>
+                </td>
+            </tr>
+            <tr>
+                <td style="width:20px;">
+                    1
+                    <i style="margin-left: 4px; color: #F7B64B;" class="fa-solid fa-star active"></i>
+                </td>
+
+                <td>
+                    <div class="progress">
+                        <div class="progress-bar" role="progressbar" style="width: @Model.one_star.ToString()%" aria-valuenow=@Model.one_star.ToString() aria-valuemin="0" aria-valuemax="100">@Model.one_star%</div>
+                    </div>
+                </td>
+            </tr>
+        </table>
+    </div>
+</div><br />
 <script src="https://code.jquery.com/jquery-3.6.0.min.js"
         integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4="
         crossorigin="anonymous"></script>
@@ -125,7 +191,7 @@
                             <div class="input-group-prepend">
                                 <span class="input-group-text">Start Date</span>
                             </div>
-                            <input type="date" class="form-control" id="startDate" name="startDate">
+                            <input type="date" class="form-control" id="startDate" name="startDate" value=@DateTime.Now>
                         </div>
                     </div>
                     <div class="col-6">
@@ -133,7 +199,7 @@
                             <div class="input-group-prepend">
                                 <span class="input-group-text">End Date</span>
                             </div>
-                            <input type="date" class="form-control" id="enddate" name="enddate">
+                            <input type="date" class="form-control" id="enddate" name="enddate" value=@DateTime.Now>
                         </div>
                     </div>
                 </div>
@@ -169,67 +235,7 @@
     </div>
 
     <div class="col-4">
-        <table class="table">
-            <tr>
-                <td style="width:20px;">
-                    5
-                    <i style="color: #F7B64B;" class="fa-solid fa-star active"></i>
-                </td>
-                <td>
-                    <div class="progress">
-                        <div class="progress-bar" role="progressbar" style="width: @Model.five_star.ToString()%" aria-valuenow=@Model.five_star.ToString() aria-valuemin="0" aria-valuemax="100">@Model.five_star%</div>
-                    </div>
-                </td>
-            </tr>
-            <tr>
-                <td style="width:20px;">
-                    4
-                    <i style="color: #F7B64B;" class="fa-solid fa-star active"></i>
-                </td>
-
-                <td>
-                    <div class="progress">
-                        <div class="progress-bar" role="progressbar" style="width: @Model.four_star.ToString()%" aria-valuenow=@Model.four_star.ToString() aria-valuemin="0" aria-valuemax="100">@Model.four_star%</div>
-                    </div>
-                </td>
-            </tr>
-            <tr>
-                <td style="width:20px;">
-                    3
-                    <i style="color: #F7B64B;" class="fa-solid fa-star active"></i>
-                </td>
-
-                <td>
-                    <div class="progress">
-                        <div class="progress-bar" role="progressbar" style="width: @Model.three_star.ToString()%" aria-valuenow=@Model.three_star.ToString() aria-valuemin="0" aria-valuemax="100">@Model.three_star%</div>
-                    </div>
-                </td>
-            </tr>
-            <tr>
-                <td style="width:20px;">
-                    2
-                    <i style="color: #F7B64B;" class="fa-solid fa-star active"></i>
-                </td>
-
-                <td>
-                    <div class="progress">
-                        <div class="progress-bar" role="progressbar" style="width: @Model.two_star.ToString()%" aria-valuenow=@Model.two_star.ToString() aria-valuemin="0" aria-valuemax="100">@Model.two_star%</div>
-                    </div>
-                </td>
-            </tr>
-            <tr>
-                <td style="width:20px;">
-                    1
-                    <i style="margin-left: 4px; color: #F7B64B;" class="fa-solid fa-star active"></i>
-                </td>
-
-                <td>
-                    <div class="progress">
-                        <div class="progress-bar" role="progressbar" style="width: @Model.one_star.ToString()%" aria-valuenow=@Model.one_star.ToString() aria-valuemin="0" aria-valuemax="100">@Model.one_star%</div>
-                    </div>
-                </td>
-            </tr>
-        </table>
+        
     </div>
 </div>
 
