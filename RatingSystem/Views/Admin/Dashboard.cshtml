@@ -26,7 +26,7 @@
                 </td>
                 <td>
                     <div class="progress">
-                        <div class="progress-bar" role="progressbar" style="width: @Model.five_star.ToString()%" aria-valuenow=@Model.five_star.ToString() aria-valuemin="0" aria-valuemax="100">@Model.five_star%</div>
+                        <div class="progress-bar" role="progressbar" style="width: @Model.five_star.ToString()%" aria-valuenow=@Model.five_star.ToString() aria-valuemin="0" aria-valuemax="100">@Model.five_star.ToString("0.0")%</div>
                     </div>
                 </td>
             </tr>
@@ -38,7 +38,7 @@
 
                 <td>
                     <div class="progress">
-                        <div class="progress-bar" role="progressbar" style="width: @Model.four_star.ToString()%" aria-valuenow=@Model.four_star.ToString() aria-valuemin="0" aria-valuemax="100">@Model.four_star%</div>
+                        <div class="progress-bar" role="progressbar" style="width: @Model.four_star.ToString()%" aria-valuenow=@Model.four_star.ToString() aria-valuemin="0" aria-valuemax="100">@Model.four_star.ToString("0.0")%</div>
                     </div>
                 </td>
             </tr>
@@ -50,7 +50,7 @@
 
                 <td>
                     <div class="progress">
-                        <div class="progress-bar" role="progressbar" style="width: @Model.three_star.ToString()%" aria-valuenow=@Model.three_star.ToString() aria-valuemin="0" aria-valuemax="100">@Model.three_star%</div>
+                        <div class="progress-bar" role="progressbar" style="width: @Model.three_star.ToString()%" aria-valuenow=@Model.three_star.ToString() aria-valuemin="0" aria-valuemax="100">@Model.three_star.ToString("0.0")%</div>
                     </div>
                 </td>
             </tr>
@@ -62,7 +62,7 @@
 
                 <td>
                     <div class="progress">
-                        <div class="progress-bar" role="progressbar" style="width: @Model.two_star.ToString()%" aria-valuenow=@Model.two_star.ToString() aria-valuemin="0" aria-valuemax="100">@Model.two_star%</div>
+                        <div class="progress-bar" role="progressbar" style="width: @Model.two_star.ToString()%" aria-valuenow=@Model.two_star.ToString() aria-valuemin="0" aria-valuemax="100">@Model.two_star.ToString("0.0")%</div>
                     </div>
                 </td>
             </tr>
@@ -74,7 +74,7 @@
 
                 <td>
                     <div class="progress">
-                        <div class="progress-bar" role="progressbar" style="width: @Model.one_star.ToString()%" aria-valuenow=@Model.one_star.ToString() aria-valuemin="0" aria-valuemax="100">@Model.one_star%</div>
+                        <div class="progress-bar" role="progressbar" style="width: @Model.one_star.ToString()%" aria-valuenow=@Model.one_star.ToString() aria-valuemin="0" aria-valuemax="100">@Model.one_star.ToString("0.0")%</div>
                     </div>
                 </td>
             </tr>
@@ -191,7 +191,8 @@
                             <div class="input-group-prepend">
                                 <span class="input-group-text">Start Date</span>
                             </div>
-                            <input type="date" class="form-control" id="startDate" name="startDate" value=@DateTime.Now>
+                            @Html.TextBox("startDate", DateTime.Now, "{0:yyyy-MM-dd}", new { @style = "width:100%", @id = "startDate", @class = "form-control", type = "date" })
+                            @*<input type="date" class="form-control" id="startDate" name="startDate" value=@DateTime.Now.ToString("MM/dd/yyyy")>*@
                         </div>
                     </div>
                     <div class="col-6">
@@ -199,7 +200,8 @@
                             <div class="input-group-prepend">
                                 <span class="input-group-text">End Date</span>
                             </div>
-                            <input type="date" class="form-control" id="enddate" name="enddate" value=@DateTime.Now>
+                            @Html.TextBox("enddate", DateTime.Now, "{0:yyyy-MM-dd}", new { @style = "width:100%", @id = "enddate", @class = "form-control", type = "date" })
+                            @*<input type="date" class="form-control" id="enddate" name="enddate" value=@DateTime.Now.ToString("MM/dd/yyyy")>*@
                         </div>
                     </div>
                 </div>
@@ -210,7 +212,7 @@
                                 <label class="input-group-text" for="type">Type</label>
                             </div>
                             <select class="form-select col-md-9" id="type" name="type">
-                                <option value="Employee">Employee</option>
+                                <option value="Employee">Team Members</option>
                                 <option value="TeamName">Team Name</option>
                             </select>
                         </div>
@@ -253,7 +255,7 @@
                         <tr>
                             <th class="text-center">
 
-                                Employee
+                                Team Members
                             </th>
                             <th>
 
@@ -274,10 +276,10 @@
                                         @item.Employee.Name
                                     </td>
                                     <td>
-                                        <ul>
-                                            <li>
+                                        <ul class="list-group">
+                                            <li class="list-group-item">
                                                 <div class="row">
-                                                    <div style="padding-top:20px;" class="col-3">
+                                                    <div style="padding-top: 20px; padding-right: 90px" class="col-3">
                                                         Customer Service:
                                                     </div>
 
@@ -346,9 +348,9 @@
 
 
                                             </li>
-                                            <li>
+                                            <li class="list-group-item">
                                                 <div class="row">
-                                                    <div style="padding-top:20px;" class="col-3">
+                                                    <div style="padding-top: 20px; padding-right: 90px" class="col-3">
                                                         Professionalism:
                                                     </div>
                                                     <div class="col-9">
@@ -417,9 +419,9 @@
 
 
                                             </li>
-                                            <li>
+                                            <li class="list-group-item">
                                                 <div class="row">
-                                                    <div style="padding-top:20px;" class="col-3">
+                                                    <div style="padding-top: 20px; padding-right: 90px" class="col-3">
                                                         Expertise:
                                                     </div>
                                                     <div class="col-9">
@@ -538,9 +540,9 @@
                                         </td>
                                         <td>
                                             <ul>
-                                                <li>
+                                                <li class="list-group-item">
                                                     <div class="row">
-                                                        <div style="padding-top:20px;" class="col-3">
+                                                        <div style="padding-top: 20px; padding-right: 90px" class="col-3">
                                                             Customer Service:
                                                         </div>
 
@@ -609,9 +611,9 @@
 
 
                                                 </li>
-                                                <li>
+                                                <li class="list-group-item">
                                                     <div class="row">
-                                                        <div style="padding-top:20px;" class="col-3">
+                                                        <div style="padding-top: 20px; padding-right: 90px" class="col-3">
                                                             Professionalism:
                                                         </div>
                                                         <div class="col-9">
@@ -680,9 +682,9 @@
 
 
                                                 </li>
-                                                <li>
+                                                <li class="list-group-item">
                                                     <div class="row">
-                                                        <div style="padding-top:20px;" class="col-3">
+                                                        <div style="padding-top:20px; padding-right:90px" class="col-3">
                                                             Expertise:
                                                         </div>
                                                         <div class="col-9">
@@ -770,7 +772,6 @@
     </div>
 
 </div>
-<script>
 <div class="text-center">
                     <div class="card">
                         <div class="card-header">
