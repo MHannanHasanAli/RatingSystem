@@ -121,6 +121,7 @@ namespace RatingSystem.Controllers
                         int professionalism_team_stars = team_professionalism_star.Sum(x => x) / team_professionalism_star.Count();
                         int expertise_team_stars = team_expertise_star.Sum(x => x) / team_expertise_star.Count();
 
+
                         var empfull = EmployeeServices.Instance.GetEmployeeByName(name);
 
                         stats.Add(new ratingextra {NoOfRatings=NoOfRatings, empName = name, ratingAVG = finalavg, teamAVG = teamrating, customerTstar = customer_team_stars, professionalismTstar = professionalism_team_stars, expertiseTstar = expertise_team_stars, Employee = empfull, CustomerService_star = customerservice_star2, professionalism_star = professionalism_star2, expertise_star = expertise_star2 });
