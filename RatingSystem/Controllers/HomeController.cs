@@ -59,10 +59,13 @@ namespace RatingSystem.Controllers
 
 
         [HttpGet]
-        public ActionResult Rating(int ID)
+        public ActionResult Rating(int ID, string BoxName, string BoxDesignation,string BoxImage)
         {
             RatingViewModel model = new RatingViewModel();
             model.EmployeeFull = EmployeeServices.Instance.GetEmployee(ID);
+            ViewBag.NameBox = BoxName;
+            ViewBag.DesignationBox = BoxDesignation;
+            ViewBag.ImageBox = BoxImage;
             return View(model);
         }
 

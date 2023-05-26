@@ -9,6 +9,8 @@ namespace RatingSystem.ViewModels
     public class HomeViewModel
     {
         public List<Employee> Employees { get; set; }
+        public string BoxName { get; set; }
+        public string BoxDesignation { get; set; }
     }
 
     public class RatingViewModel
