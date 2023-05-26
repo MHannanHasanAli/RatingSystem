@@ -45,6 +45,7 @@ namespace RatingSystem.ViewModels
     public class ratingextra
     {
         public Employee Employee { get; set; }
+        public int NoOfRatings { get; set; }
 
         public string  empName { get; set; }
         public float ratingAVG { get; set; }
@@ -60,6 +61,7 @@ namespace RatingSystem.ViewModels
         public int professionalismTstar { get; set; }
         public int expertiseTstar { get; set; }
         public float teamAVG { get; set; }
+        
 
     }
 }

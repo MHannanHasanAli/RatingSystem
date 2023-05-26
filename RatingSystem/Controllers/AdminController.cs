@@ -90,6 +90,7 @@ namespace RatingSystem.Controllers
 
                         string name = item.Employee;
                         var ratingsOfEmp = ratings.Where(x => x.Employee == name).ToList();
+                        int NoOfRatings = ratingsOfEmp.Count();
                         float avg = 0;
                         int customerservice_star = 0;
                         int professionalism_star = 0;
@@ -122,13 +123,16 @@ namespace RatingSystem.Controllers
 
                         var empfull = EmployeeServices.Instance.GetEmployeeByName(name);
 
-                        stats.Add(new ratingextra { empName = name, ratingAVG = finalavg, teamAVG = teamrating, customerTstar = customer_team_stars, professionalismTstar = professionalism_team_stars, expertiseTstar = expertise_team_stars, Employee = empfull, CustomerService_star = customerservice_star2, professionalism_star = professionalism_star2, expertise_star = expertise_star2 });
+                        stats.Add(new ratingextra {NoOfRatings=NoOfRatings, empName = name, ratingAVG = finalavg, teamAVG = teamrating, customerTstar = customer_team_stars, professionalismTstar = professionalism_team_stars, expertiseTstar = expertise_team_stars, Employee = empfull, CustomerService_star = customerservice_star2, professionalism_star = professionalism_star2, expertise_star = expertise_star2 });
                     }
                 }
                 else
                 {
                     string name = item.Employee;
                     var ratingsOfEmp = ratings.Where(x => x.Employee == name).ToList();
+                    int NoOfRatings = ratingsOfEmp.Count();
+
+
                     float avg = 0;
                     int customerservice_star = 0;
                     int professionalism_star = 0;
@@ -161,7 +165,7 @@ namespace RatingSystem.Controllers
 
                     var empfull = EmployeeServices.Instance.GetEmployeeByName(name);
 
-                    stats.Add(new ratingextra { empName = name, ratingAVG = finalavg, teamAVG = teamrating, customerTstar = customer_team_stars, professionalismTstar = professionalism_team_stars, expertiseTstar = expertise_team_stars, Employee = empfull, CustomerService_star = customerservice_star2, professionalism_star = professionalism_star2, expertise_star = expertise_star2 });
+                    stats.Add(new ratingextra { NoOfRatings= NoOfRatings, empName = name, ratingAVG = finalavg, teamAVG = teamrating, customerTstar = customer_team_stars, professionalismTstar = professionalism_team_stars, expertiseTstar = expertise_team_stars, Employee = empfull, CustomerService_star = customerservice_star2, professionalism_star = professionalism_star2, expertise_star = expertise_star2 });
                 }
             }
             model.Statistics = stats;
@@ -222,13 +226,13 @@ namespace RatingSystem.Controllers
             StringBuilder csvContent = new StringBuilder();
 
             // Add table headers to CSV content
-            csvContent.AppendLine("Employee,Team Name,Customer Service, Professionalism, Expertise");
+            csvContent.AppendLine("Employee,Team Name,Customer Service, Professionalism, Expertise,Date");
 
             // Add table rows from the view to CSV content
             foreach (var item in data)
             {
 
-                csvContent.AppendLine($"{item.Employee},{item.TeamName},{item.CustomerService},{item.Professionalism},{item.Expertise}");
+                csvContent.AppendLine($"{item.Employee},{item.TeamName},{item.CustomerService},{item.Professionalism},{item.Expertise},{item.Date.ToShortDateString()}");
             }
 
             // Set response headers
@@ -269,6 +273,8 @@ namespace RatingSystem.Controllers
 
                         string name = item.Employee;
                         var ratingsOfEmp = ratings.Where(x => x.Employee == name).ToList();
+                        int NoOfRatings = ratingsOfEmp.Count(); //Get Me bhi check krlo ye dala hai
+                        
                         float avg = 0;
                         int customerservice_star = 0;
                         int professionalism_star = 0;
@@ -301,13 +307,15 @@ namespace RatingSystem.Controllers
 
                         var empfull = EmployeeServices.Instance.GetEmployeeByName(name);
 
-                        stats.Add(new ratingextra { empName = name, ratingAVG = finalavg, teamAVG = teamrating, customerTstar = customer_team_stars, professionalismTstar = professionalism_team_stars, expertiseTstar = expertise_team_stars, Employee = empfull, CustomerService_star = customerservice_star2, professionalism_star = professionalism_star2, expertise_star = expertise_star2 });
+                        stats.Add(new ratingextra {NoOfRatings = NoOfRatings, empName = name, ratingAVG = finalavg, teamAVG = teamrating, customerTstar = customer_team_stars, professionalismTstar = professionalism_team_stars, expertiseTstar = expertise_team_stars, Employee = empfull, CustomerService_star = customerservice_star2, professionalism_star = professionalism_star2, expertise_star = expertise_star2 });
                     }
                 }
                 else
                 {
                     string name = item.Employee;
                     var ratingsOfEmp = ratings.Where(x => x.Employee == name).ToList();
+                    int NoOfRatings = ratingsOfEmp.Count(); //Get Me bhi check krlo yeghi dala hai
+
                     float avg = 0;
                     int customerservice_star = 0;
                     int professionalism_star = 0;
@@ -340,7 +348,7 @@ namespace RatingSystem.Controllers
 
                     var empfull = EmployeeServices.Instance.GetEmployeeByName(name);
 
-                    stats.Add(new ratingextra { empName = name, ratingAVG = finalavg, teamAVG = teamrating, customerTstar = customer_team_stars, professionalismTstar = professionalism_team_stars, expertiseTstar = expertise_team_stars, Employee = empfull, CustomerService_star = customerservice_star2, professionalism_star = professionalism_star2, expertise_star = expertise_star2 });
+                    stats.Add(new ratingextra {NoOfRatings = NoOfRatings, empName = name, ratingAVG = finalavg, teamAVG = teamrating, customerTstar = customer_team_stars, professionalismTstar = professionalism_team_stars, expertiseTstar = expertise_team_stars, Employee = empfull, CustomerService_star = customerservice_star2, professionalism_star = professionalism_star2, expertise_star = expertise_star2 });
                 }
             }
             model.Statistics = stats;
