@@ -82,6 +82,7 @@ namespace RatingSystem.Controllers
             rating.Expertise = model.Expertise;
             rating.Employee = model.Employee;
             rating.TeamName = model.TeamName;
+
             rating.Date = DateTime.Now;
             RatingServices.Instance.SaveRating(rating);
             return Json(new { success = true },JsonRequestBehavior.AllowGet);

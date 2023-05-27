@@ -87,7 +87,7 @@
         <div class="main-panel">
             @if (!User.Identity.IsAuthenticated)
             {
-                <div style="margin-left:100px;" class="content-wrapper">
+                <div style="width:125%;" class="content-wrapper">
                     @using (Html.BeginForm("LogOff", "Account", FormMethod.Post, new { id = "logoutForm", @class = "navbar-right" }))
                     {
                         @Html.AntiForgeryToken()}

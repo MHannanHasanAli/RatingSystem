@@ -232,7 +232,7 @@ namespace RatingSystem.Controllers
             foreach (var item in data)
             {
 
-                csvContent.AppendLine($"{item.Employee},{item.TeamName},{item.CustomerService},{item.Professionalism},{item.Expertise},{item.Date.ToShortDateString()}");
+                csvContent.AppendLine($"{item.Employee},{item.TeamName},{item.CustomerService},{item.Professionalism},{item.Expertise},{item.Date}");
             }
 
             // Set response headers
