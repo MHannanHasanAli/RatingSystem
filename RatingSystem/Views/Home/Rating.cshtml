@@ -79,12 +79,12 @@
                           
                           <div class="row">
                               <div class="col-2">
-                                  <img src="@ViewBag.ImageBox" alt=""  class="employeeimages img-fluid"/>
+                                  <img src="@Model.EmployeeFull.Image" alt=""  class="employeeimages img-fluid"/>
                               </div>
                               <div class="col-3">
                                   <div id="Box" class="text-center">
-                                      <h2>@ViewBag.NameBox</h2><br />
-                                      <h6>@ViewBag.DesignationBox</h6>
+                                      <h2>@Model.EmployeeFull.Name</h2><br />
+                                      <h6>@Model.EmployeeFull.Designation</h6>
                                   </div>
                               </div>
                               <div class="col-6">
