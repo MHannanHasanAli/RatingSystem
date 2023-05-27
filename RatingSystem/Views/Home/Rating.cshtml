@@ -4,13 +4,22 @@
 }
 
 <style>
+    .employeeimages {
+        margin-top: 60px;
+        padding-top: 3px;
+        height: 150px;
+        width: 150px;
+        border-radius: 50%;
+    }
     .table th, .table td {
         padding: 0.5rem 0.9375rem;
         vertical-align: top;
         border-top: 1px solid #f3f3f3;
     }
     .rating-box {
-        padding: 25px 37px;
+        padding-top: 25px;
+        padding-bottom: 25px;
+        margin-right:200px;
         border-radius: 25px;
         text-align: center;
     }
@@ -18,7 +27,6 @@
         .rating-box h3 {
             font-size: 22px;
             font-weight: 600;
-            margin-bottom: 20px;
         }
 
         .rating-box .stars {
@@ -29,6 +37,7 @@
         }
 
     .stars i {
+        padding-bottom:10px;
         font-size: 45px;
         color: #b5b8b1;
         transition: all 0.2s;
@@ -38,6 +47,14 @@
         .stars i.active {
             color: #ffb851;
             transform: scale(1.2);
+        }
+
+        #Box{
+            margin-top:80px;
+          padding-top:3px;
+            width:150px;
+            border:solid 2px black;
+            background-color:gainsboro;
         }
 </style>
 <section id="rating">
@@ -58,64 +75,82 @@
 
                   <div class="col-md-12">
                       <form id="actionForm">
-                          <input type="hidden" name="Employee" value="@Model.EmployeeFull.Name" id="Employee" />
-                          <input type="hidden" name="TeamName" value="@Model.EmployeeFull.TeamName" id="TeamName" />
-                          <table class="table  table-borderless">
-                              <tr>
-                                  <td>
-                                      <h3>Customer Service</h3>
-                                  </td>
-                                  <td>
-                                      <div id="@Model.EmployeeFull.ID" class="rating-box">
-                                          <div id="CustomerServiceStars" class="stars">
-                                              <i class="fa-solid fa-star"></i>
-                                              <i class="fa-solid fa-star"></i>
-                                              <i class="fa-solid fa-star"></i>
-                                              <i class="fa-solid fa-star"></i>
-                                              <i class="fa-solid fa-star"></i>
+                          
+                              <input type="hidden" name="Employee" value="@Model.EmployeeFull.Name" id="Employee" />
+                              <input type="hidden" name="TeamName" value="@Model.EmployeeFull.TeamName" id="TeamName" />
+                          
+                          <div class="row">
+                              <div class="col-2">
+                                  <img src="@ViewBag.ImageBox" alt=""  class="employeeimages img-fluid"/>
+                              </div>
+                              <div class="col-4">
+                                  <div id="Box" class="text-center">
+                                      <h2>@ViewBag.NameBox</h2><br />
+                                      <h6>@ViewBag.DesignationBox</h6>
+                                  </div>
+                              </div>
+                              <div class="col-6">
+                                  <table class="table  table-borderless">
+                                      <tr>
+                                          <td>
+                                              <h3>Customer Service</h3>
+                                          </td>
+                                          <td>
+                                              <div id="@Model.EmployeeFull.ID" class="rating-box">
+                                                  <div id="CustomerServiceStars" class="stars">
+                                                      <i class="fa-solid fa-star"></i>
+                                                      <i class="fa-solid fa-star"></i>
+                                                      <i class="fa-solid fa-star"></i>
+                                                      <i class="fa-solid fa-star"></i>
+                                                      <i class="fa-solid fa-star"></i>
 
-                                              <input type="hidden" name="CustomerService" id="CustomerService" />
-                                          </div>
-                                      </div>
-                                  </td>
-                              </tr>
-                              <tr>
-                                  <td>
-                                      <h3>Professionalism</h3>
-                                  </td>
-                                  <td>
-                                      <div id="ProfessionalismStars" class="rating-box">
-                                          <div class="stars">
-                                              <i class="fa-solid fa-star"></i>
-                                              <i class="fa-solid fa-star"></i>
-                                              <i class="fa-solid fa-star"></i>
-                                              <i class="fa-solid fa-star"></i>
-                                              <i class="fa-solid fa-star"></i>
+                                                      <input type="hidden" name="CustomerService" id="CustomerService" />
+                                                  </div>
+                                              </div>
+                                          </td>
+                                      </tr>
+                                      <tr>
+                                          <td>
+                                              <h3>Professionalism</h3>
+                                          </td>
+                                          <td>
+                                              <div id="ProfessionalismStars" class="rating-box">
+                                                  <div class="stars">
+                                                      <i class="fa-solid fa-star"></i>
+                                                      <i class="fa-solid fa-star"></i>
+                                                      <i class="fa-solid fa-star"></i>
+                                                      <i class="fa-solid fa-star"></i>
+                                                      <i class="fa-solid fa-star"></i>
 
-                                              <input type="hidden" name="Professionalism" id="Professionalism" />
-                                          </div>
-                                      </div>
-                                  </td>
-                              </tr>
-                              <tr>
-                                  <td>
-                                      <h3> Expertise</h3>
-                                  </td>
-                                  <td>
-                                      <div class="rating-box">
-                                          <div id="ExpertiseStars" class="stars">
-                                              <i class="fa-solid fa-star"></i>
-                                              <i class="fa-solid fa-star"></i>
-                                              <i class="fa-solid fa-star"></i>
-                                              <i class="fa-solid fa-star"></i>
-                                              <i class="fa-solid fa-star"></i>
+                                                      <input type="hidden" name="Professionalism" id="Professionalism" />
+                                                  </div>
+                                              </div>
+                                          </td>
+                                      </tr>
+                                      <tr>
+                                          <td>
+                                              <h3> Expertise</h3>
+                                          </td>
+                                          <td>
+                                              <div class="rating-box">
+                                                  <div id="ExpertiseStars" class="stars">
+                                                      <i class="fa-solid fa-star"></i>
+                                                      <i class="fa-solid fa-star"></i>
+                                                      <i class="fa-solid fa-star"></i>
+                                                      <i class="fa-solid fa-star"></i>
+                                                      <i class="fa-solid fa-star"></i>
 
-                                              <input type="hidden" name="Expertise" id="Expertise" />
-                                          </div>
-                                      </div>
-                                  </td>
-                              </tr>
-                          </table>
+                                                      <input type="hidden" name="Expertise" id="Expertise" />
+                                                  </div>
+                                              </div>
+                                          </td>
+                                      </tr>
+                                  </table>
+                              </div>
+                          </div>
+                          
+                         
+                         
                           <hr />
 
 
