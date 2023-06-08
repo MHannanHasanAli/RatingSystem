@@ -4,6 +4,18 @@
 }
 
 <style>
+     h3 {
+        font-size: 16px; 
+    }
+    #empname{
+        font-size:14px;
+    }
+    #desgn{
+        font-size: 10px;s
+    }
+    .table-bordered {
+        border: 1px solid black;
+    }
     .employeeimages {
         margin-top: 60px;
         padding-top: 3px;
@@ -14,14 +26,13 @@
     .table th, .table td {
         padding: 0.5rem 0.9375rem;
         vertical-align: top;
-        border-top: 1px solid #f3f3f3;
+        border: 3px solid black;
     }
     .rating-box {
         padding-top: 25px;
         padding-bottom: 25px;
         margin-right:200px;
         border-radius: 25px;
-        text-align: center;
     }
 
         .rating-box h3 {
@@ -31,20 +42,34 @@
 
         .rating-box .stars {
             display: flex;
-            align-items: center;
-            gap: 5px;
-            width: 0px;
+            padding: 1px;
+            padding-left: 120px;
+            cursor: pointer;
         }
-
-    .stars i {
-        padding-bottom:10px;
-        font-size: 45px;
-        color: #b5b8b1;
-        transition: all 0.2s;
+   .stars{
+       margin-right: -150px;
+   }
+    .stars span {
+        display: inline-block;
+        font-size: 48px;
+        color: gray;
+        unicode-bidi: bidi-override;
+        direction: rtl;
+    }
+    .star {
+        display: inline-block;
+        padding: 1px;
         cursor: pointer;
+        
+    }
+    .rating-box .star:before {
+        content: "\2605";
     }
 
-        .stars i.active {
+    .rating-box .star.active {
+        color: orange;
+    }
+        .stars span.active {
             color: #ffb851;
             transform: scale(1.2);
         }
@@ -81,30 +106,34 @@
                               <div class="col-2">
                                   <img src="@Model.EmployeeFull.Image" alt=""  class="employeeimages img-fluid"/>
                               </div>
-                              <div class="col-3">
+                              <div class="col-2">
                                   <div id="Box" class="text-center">
-                                      <h2>@Model.EmployeeFull.Name</h2><br />
-                                      <h6>@Model.EmployeeFull.Designation</h6>
+                                      <h2 id="empname">@Model.EmployeeFull.Name</h2><br />
+                                      <h6 id="desgn">@Model.EmployeeFull.Designation</h6>
                                   </div>
                               </div>
-                              <div class="col-6">
-                                  <table class="table  table-borderless">
+                              <div class="col-8">
+                                  <table class=" table table-bordered text-center">
                                       <tr>
                                           <td>
                                               <h3>Customer Service</h3>
                                           </td>
                                           <td>
                                               <div id="@Model.EmployeeFull.ID" class="rating-box">
+
                                                   <div id="CustomerServiceStars" class="stars">
-                                                      <i class="fa-solid fa-star"></i>
-                                                      <i class="fa-solid fa-star"></i>
-                                                      <i class="fa-solid fa-star"></i>
-                                                      <i class="fa-solid fa-star"></i>
-                                                      <i class="fa-solid fa-star"></i>
+                                                      <span class="star"></span>
+                                                      <span class="star"></span>
+                                                      <span class="star"></span>
+                                                      <span class="star"></span>
+                                                      <span class="star"></span>
 
                                                       <input type="hidden" name="CustomerService" id="CustomerService" />
                                                   </div>
                                               </div>
+                                          </td>
+                                          <td>
+                                              <h3>Customer Service</h3>
                                           </td>
                                       </tr>
                                       <tr>
@@ -114,15 +143,18 @@
                                           <td>
                                               <div id="ProfessionalismStars" class="rating-box">
                                                   <div class="stars">
-                                                      <i class="fa-solid fa-star"></i>
-                                                      <i class="fa-solid fa-star"></i>
-                                                      <i class="fa-solid fa-star"></i>
-                                                      <i class="fa-solid fa-star"></i>
-                                                      <i class="fa-solid fa-star"></i>
+                                                      <span class="star"></span>
+                                                      <span class="star"></span>
+                                                      <span class="star"></span>
+                                                      <span class="star"></span>
+                                                      <span class="star"></span>
 
                                                       <input type="hidden" name="Professionalism" id="Professionalism" />
                                                   </div>
                                               </div>
+                                          </td>
+                                          <td>
+                                              <h3>Professionalism</h3>
                                           </td>
                                       </tr>
                                       <tr>
@@ -132,15 +164,102 @@
                                           <td>
                                               <div class="rating-box">
                                                   <div id="ExpertiseStars" class="stars">
-                                                      <i class="fa-solid fa-star"></i>
-                                                      <i class="fa-solid fa-star"></i>
-                                                      <i class="fa-solid fa-star"></i>
-                                                      <i class="fa-solid fa-star"></i>
-                                                      <i class="fa-solid fa-star"></i>
+                                                      <span class="star"></span>
+                                                      <span class="star"></span>
+                                                      <span class="star"></span>
+                                                      <span class="star"></span>
+                                                      <span class="star"></span>
 
                                                       <input type="hidden" name="Expertise" id="Expertise" />
                                                   </div>
                                               </div>
+                                          </td>
+                                          <td>
+                                              <h3> Expertise</h3>
+                                          </td>
+                                      </tr>
+                                      <tr>
+                                          <td>
+                                              <h3> Respect</h3>
+                                          </td>
+                                          <td>
+                                              <div class="rating-box">
+                                                  <div id="RespectServiceStars" class="stars">
+                                                      <span class="star"></span>
+                                                      <span class="star"></span>
+                                                      <span class="star"></span>
+                                                      <span class="star"></span>
+                                                      <span class="star"></span>
+
+                                                      <input type="hidden" name="RespectService" id="RespectService" />
+                                                  </div>
+                                              </div>
+                                          </td>
+                                          <td>
+                                              <h3> Respect</h3>
+                                          </td>
+                                      </tr>
+                                      <tr>
+                                          <td>
+                                              <h3> Explanation</h3>
+                                          </td>
+                                          <td>
+                                              <div class="rating-box">
+                                                  <div id="ExplanationServiceStars" class="stars">
+                                                      <span class="star"></span>
+                                                      <span class="star"></span>
+                                                      <span class="star"></span>
+                                                      <span class="star"></span>
+                                                      <span class="star"></span>
+
+                                                      <input type="hidden" name="ExplanationService" id="ExplanationService" />
+                                                  </div>
+                                              </div>
+                                          </td>
+                                          <td>
+                                              <h3> Explanation</h3>
+                                          </td>
+                                      </tr>
+                                      <tr>
+                                          <td>
+                                              <h3>Treatment</h3>
+                                          </td>
+                                          <td>
+                                              <div class="rating-box">
+                                                  <div id="TreatmentServiceStars" class="stars">
+                                                      <span class="star"></span>
+                                                      <span class="star"></span>
+                                                      <span class="star"></span>
+                                                      <span class="star"></span>
+                                                      <span class="star"></span>
+
+                                                      <input type="hidden" name="TreatmentService" id="TreatmentService" />
+                                                  </div>
+                                              </div>
+                                          </td>
+                                          <td>
+                                              <h3> Treatment</h3>
+                                          </td>
+                                      </tr>
+                                      <tr>
+                                          <td>
+                                              <h3> Overall</h3>
+                                          </td>
+                                          <td>
+                                              <div class="rating-box">
+                                                  <div id="OverallServiceStars" class="stars">
+                                                      <span class="star"></span>
+                                                      <span class="star"></span>
+                                                      <span class="star"></span>
+                                                      <span class="star"></span>
+                                                      <span class="star"></span>
+
+                                                      <input type="hidden" name="OverallService" id="OverallService" />
+                                                  </div>
+                                              </div>
+                                          </td>
+                                          <td>
+                                              <h3> Overall</h3>
                                           </td>
                                       </tr>
                                   </table>
@@ -166,7 +285,7 @@
 
 
 <script>
-    $('#CustomerServiceStars i').on('click', function () {
+    $('#CustomerServiceStars span').on('click', function () {
         // Remove the active class from all stars
         $(this).siblings().removeClass('active');
 
@@ -184,8 +303,80 @@
 
         $("#CustomerService").val(Rating);
     });
+    $('#RespectServiceStars span').on('click', function () {
+        // Remove the active class from all stars
+        $(this).siblings().removeClass('active');
 
-    $('#ProfessionalismStars i').on('click', function () {
+        // Add the active class to the clicked star and all previous siblings
+        $(this).addClass('active');
+        $(this).prevAll().addClass('active');
+
+        // Get the index of the clicked star (starting from 0)
+        var index = $(this).index();
+        //var containerId = $(this).closest('.rating-box').attr('id');
+
+        // Log the selected rating
+        //console.log(index + 1);
+        var Rating = index + 1;
+
+        $("#RespectService").val(Rating);
+    });
+    $('#ExplanationServiceStars span').on('click', function () {
+        // Remove the active class from all stars
+        $(this).siblings().removeClass('active');
+
+        // Add the active class to the clicked star and all previous siblings
+        $(this).addClass('active');
+        $(this).prevAll().addClass('active');
+
+        // Get the index of the clicked star (starting from 0)
+        var index = $(this).index();
+        //var containerId = $(this).closest('.rating-box').attr('id');
+
+        // Log the selected rating
+        //console.log(index + 1);
+        var Rating = index + 1;
+
+        $("#ExplanationService").val(Rating);
+    });
+    $('#TreatmentServiceStars span').on('click', function () {
+        // Remove the active class from all stars
+        $(this).siblings().removeClass('active');
+
+        // Add the active class to the clicked star and all previous siblings
+        $(this).addClass('active');
+        $(this).prevAll().addClass('active');
+
+        // Get the index of the clicked star (starting from 0)
+        var index = $(this).index();
+        //var containerId = $(this).closest('.rating-box').attr('id');
+
+        // Log the selected rating
+        //console.log(index + 1);
+        var Rating = index + 1;
+
+        $("#TreatmentService").val(Rating);
+    });
+    $('#OverallServiceStars span').on('click', function () {
+        // Remove the active class from all stars
+        $(this).siblings().removeClass('active');
+
+        // Add the active class to the clicked star and all previous siblings
+        $(this).addClass('active');
+        $(this).prevAll().addClass('active');
+
+        // Get the index of the clicked star (starting from 0)
+        var index = $(this).index();
+        //var containerId = $(this).closest('.rating-box').attr('id');
+
+        // Log the selected rating
+        //console.log(index + 1);
+        var Rating = index + 1;
+
+        $("#OverallService").val(Rating);
+    });
+
+    $('#ProfessionalismStars span').on('click', function () {
         // Remove the active class from all stars
         $(this).siblings().removeClass('active');
 
@@ -204,7 +395,7 @@
         $("#Professionalism").val(Rating);
     });
 
-    $('#ExpertiseStars i').on('click', function () {
+    $('#ExpertiseStars span').on('click', function () {
         // Remove the active class from all stars
         $(this).siblings().removeClass('active');
 

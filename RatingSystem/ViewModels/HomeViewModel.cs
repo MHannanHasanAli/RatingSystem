@@ -21,5 +21,9 @@ namespace RatingSystem.ViewModels
         public string CustomerService { get; set; }
         public string Professionalism { get; set; }
         public string Expertise { get; set; }
+        public string Respect { get; set; }
+        public string Explanation { get; set; }
+        public string Treatment { get; set; }
+        public string Overall { get; set; }
     }
 }

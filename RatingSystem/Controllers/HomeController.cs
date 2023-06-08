@@ -83,6 +83,10 @@ namespace RatingSystem.Controllers
             rating.CustomerService = model.CustomerService;
             rating.Professionalism = model.Professionalism;
             rating.Expertise = model.Expertise;
+            rating.Respect = model.Respect;
+            rating.Explanation = model.Explanation;
+            rating.Treatment = model.Treatment;
+            rating.Overall = model.Overall;
             rating.Employee = model.Employee;
             rating.TeamName = model.TeamName;
 
@@ -115,57 +119,6 @@ namespace RatingSystem.Controllers
                 return View();
             }
         }
-
-
-
-        //[HttpPost]
-        //public ActionResult Login(string Email, string Password)
-        //{
-        //    var user = DBNull;/* AMUserManager(username, password);*/
-        //    if (user != null)
-        //    {
-        //        Session["ID"] = user.ID.ToString();
-        //        Session["UserName"] = user.UserName.ToString();
-        //        Session["Email"] = user.Email.ToString();
-        //        Session["Role"] = user.Role.ToString();
-        //        if (user.Role == "Admin")
-        //        {
-        //            return RedirectToAction("AdminDashboard", "Home");
-        //        }
-        //        else if (user.Role == "Kitchen Staff")
-        //        {
-        //            return RedirectToAction("KitchenDashboard", "Home");
-        //        }
-        //        else if (user.Role == "Cashier")
-        //        {
-        //            return RedirectToAction("BillingDashboard", "Home");
-        //        }
-
-        //        else if (user.Role == "Waiter")
-        //        {
-        //            return RedirectToAction("WaiterApp", "Home");
-        //        }
-        //        else if (user.Role == "Kitchen Master")
-        //        {
-        //            return RedirectToAction("KitchenDashboard", "Home");
-        //        }
-        //    }
-        //    else
-        //    {
-
-        //    }
-        //    {
-        //        string msg = "Invalid Password or UserName";
-        //        TempData["ErrorMessage"] = msg;
-        //    }
-
-        //    Session["ID"] = null;
-        //    Session["UserName"] = null;
-        //    Session["Email"] = null;
-        //    Session["Role"] = null;
-        //    return RedirectToAction("Index", "Login");
-
-        //}
 
 
     }
