@@ -29,7 +29,7 @@
         border: 3px solid black;
     }
     .rating-box {
-        padding-top: 25px;
+        padding-top: 0px;
         padding-bottom: 25px;
         margin-right:200px;
         border-radius: 25px;
@@ -92,6 +92,7 @@
         </div>
 
     </div>
+    <br />
     <div class="container-fluid">
       
               <div class="row">
@@ -107,35 +108,30 @@
                               <div class="col-2">
                                   <img src="@Model.EmployeeFull.Image" alt=""  class="employeeimages img-fluid"/>
                               </div>
-                              <div class="col-2">
+                              <div class="col-3">
                                   <div id="Box" class="text-center">
-                                      <h2 id="empname">@Model.EmployeeFull.Name</h2><br />
-                                      <h6 id="desgn">@Model.EmployeeFull.Designation</h6>
-
+                                      <h2>@Model.EmployeeFull.Name</h2><br />
+                                      <h6>@Model.EmployeeFull.Designation</h6>
                                   </div>
                               </div>
-                              <div class="col-8">
-                                  <table class=" table table-bordered text-center">
+                              <div class="col-6">
+                                  <table class="table  table-borderless">
                                       <tr>
                                           <td>
                                               <h3>Customer Service</h3>
                                           </td>
                                           <td>
                                               <div id="@Model.EmployeeFull.ID" class="rating-box">
-
                                                   <div id="CustomerServiceStars" class="stars">
-                                                      <span class="star"></span>
-                                                      <span class="star"></span>
-                                                      <span class="star"></span>
-                                                      <span class="star"></span>
-                                                      <span class="star"></span>
+                                                      <i class="fa-solid fa-star"></i>
+                                                      <i class="fa-solid fa-star"></i>
+                                                      <i class="fa-solid fa-star"></i>
+                                                      <i class="fa-solid fa-star"></i>
+                                                      <i class="fa-solid fa-star"></i>
 
                                                       <input type="hidden" name="CustomerService" id="CustomerService" />
                                                   </div>
                                               </div>
-                                          </td>
-                                          <td>
-                                              <h3>Customer Service</h3>
                                           </td>
                                       </tr>
                                       <tr>
@@ -145,18 +141,15 @@
                                           <td>
                                               <div id="ProfessionalismStars" class="rating-box">
                                                   <div class="stars">
-                                                      <span class="star"></span>
-                                                      <span class="star"></span>
-                                                      <span class="star"></span>
-                                                      <span class="star"></span>
-                                                      <span class="star"></span>
+                                                      <i class="fa-solid fa-star"></i>
+                                                      <i class="fa-solid fa-star"></i>
+                                                      <i class="fa-solid fa-star"></i>
+                                                      <i class="fa-solid fa-star"></i>
+                                                      <i class="fa-solid fa-star"></i>
 
                                                       <input type="hidden" name="Professionalism" id="Professionalism" />
                                                   </div>
                                               </div>
-                                          </td>
-                                          <td>
-                                              <h3>Professionalism</h3>
                                           </td>
                                       </tr>
                                       <tr>
@@ -166,102 +159,15 @@
                                           <td>
                                               <div class="rating-box">
                                                   <div id="ExpertiseStars" class="stars">
-                                                      <span class="star"></span>
-                                                      <span class="star"></span>
-                                                      <span class="star"></span>
-                                                      <span class="star"></span>
-                                                      <span class="star"></span>
+                                                      <i class="fa-solid fa-star"></i>
+                                                      <i class="fa-solid fa-star"></i>
+                                                      <i class="fa-solid fa-star"></i>
+                                                      <i class="fa-solid fa-star"></i>
+                                                      <i class="fa-solid fa-star"></i>
 
                                                       <input type="hidden" name="Expertise" id="Expertise" />
                                                   </div>
                                               </div>
-                                          </td>
-                                          <td>
-                                              <h3> Expertise</h3>
-                                          </td>
-                                      </tr>
-                                      <tr>
-                                          <td>
-                                              <h3> Respect</h3>
-                                          </td>
-                                          <td>
-                                              <div class="rating-box">
-                                                  <div id="RespectStars" class="stars">
-                                                      <span class="star"></span>
-                                                      <span class="star"></span>
-                                                      <span class="star"></span>
-                                                      <span class="star"></span>
-                                                      <span class="star"></span>
-
-                                                      <input type="hidden" name="Respect" id="Respect" />
-                                                  </div>
-                                              </div>
-                                          </td>
-                                          <td>
-                                              <h3> Respect</h3>
-                                          </td>
-                                      </tr>
-                                      <tr>
-                                          <td>
-                                              <h3> Explanation</h3>
-                                          </td>
-                                          <td>
-                                              <div class="rating-box">
-                                                  <div id="ExplanationStars" class="stars">
-                                                      <span class="star"></span>
-                                                      <span class="star"></span>
-                                                      <span class="star"></span>
-                                                      <span class="star"></span>
-                                                      <span class="star"></span>
-
-                                                      <input type="hidden" name="Explanation" id="Explanation" />
-                                                  </div>
-                                              </div>
-                                          </td>
-                                          <td>
-                                              <h3> Explanation</h3>
-                                          </td>
-                                      </tr>
-                                      <tr>
-                                          <td>
-                                              <h3>Treatment</h3>
-                                          </td>
-                                          <td>
-                                              <div class="rating-box">
-                                                  <div id="TreatmentStars" class="stars">
-                                                      <span class="star"></span>
-                                                      <span class="star"></span>
-                                                      <span class="star"></span>
-                                                      <span class="star"></span>
-                                                      <span class="star"></span>
-
-                                                      <input type="hidden" name="Treatment" id="Treatment" />
-                                                  </div>
-                                              </div>
-                                          </td>
-                                          <td>
-                                              <h3> Treatment</h3>
-                                          </td>
-                                      </tr>
-                                      <tr>
-                                          <td>
-                                              <h3> Overall</h3>
-                                          </td>
-                                          <td>
-                                              <div class="rating-box">
-                                                  <div id="OverallStars" class="stars">
-                                                      <span class="star"></span>
-                                                      <span class="star"></span>
-                                                      <span class="star"></span>
-                                                      <span class="star"></span>
-                                                      <span class="star"></span>
-
-                                                      <input type="hidden" name="Overall" id="Overall" />
-                                                  </div>
-                                              </div>
-                                          </td>
-                                          <td>
-                                              <h3> Overall</h3>
                                           </td>
                                       </tr>
                                   </table>
@@ -270,10 +176,8 @@
                           
                          
                          
-                          <hr />
 
 
-                          <button type="button" class="btn btn-block btn-primary" id="actionBtn">SUBMIT</button>
 
 
                       </form>
