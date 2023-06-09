@@ -6,6 +6,8 @@ using RatingSystem.ViewModels;
 using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Threading;
+using System.Threading.Tasks;
 using System.Web;
 using System.Web.Mvc;
 
@@ -69,12 +71,16 @@ namespace RatingSystem.Controllers
             return View(model);
         }
 
-
+        public ActionResult multipleFeedbacks()
+        {
+            return View();
+        }
 
         public ActionResult Thankyou()
         {
             return View();
         }
+
 
         [HttpPost]
         public ActionResult Rating(RatingViewModel model)
@@ -89,10 +95,21 @@ namespace RatingSystem.Controllers
             rating.Overall = model.Overall;
             rating.Employee = model.Employee;
             rating.TeamName = model.TeamName;
-
+            rating.Address = model.Address;
             rating.Date = DateTime.Now;
-            RatingServices.Instance.SaveRating(rating);
-            return Json(new { success = true },JsonRequestBehavior.AllowGet);
+
+            var ipChecker = RatingServices.Instance.Getip(rating.Address);
+
+            if( ipChecker != null)
+            {
+                return RedirectToAction("multipleFeedbacks", "Home");
+            }
+            else
+            {
+                RatingServices.Instance.SaveRating(rating);
+                return Json(new { success = true }, JsonRequestBehavior.AllowGet);
+            }
+
         }
         public ActionResult About()
         {

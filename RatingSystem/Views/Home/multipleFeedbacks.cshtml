@@ -1,0 +1,29 @@
+﻿
+@{
+    ViewBag.Title = "Multiple Feedbacks";
+
+}
+<style>
+    
+    .text-center {
+        font-size: 50%;
+    }
+</style>
+<div class="text-center">
+    <h1>Sorry! Cannot Add Multiple Feedbacks...</h1>
+</div>
+
+<script>
+  $(document).ready(function() {
+        redirectAfterDelay();
+    });
+
+    function redirectAfterDelay() {
+        document.addEventListener('click', function() {
+            setTimeout(function() {
+                var url = '@Url.Action("Index", "Home")'; // Replace with your desired URL
+                window.location.href = url;
+            }, 2000); // Delay for 2 seconds (adjust as needed)
+        });
+    }
+</script>

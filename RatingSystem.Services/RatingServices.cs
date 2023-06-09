@@ -170,6 +170,16 @@ namespace RatingSystem.Services
             }
         }
 
+        public Rating Getip(string ip)
+        {
+            using(var context = new DSContext())
+            {
+
+                return context.Ratings.Find(ip);
+
+
+            }
+        }
         #endregion
     }
 }

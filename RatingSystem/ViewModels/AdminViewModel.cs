@@ -52,14 +52,26 @@ namespace RatingSystem.ViewModels
         public float CustomerService{ get; set; }
         public float professionalism { get; set; }
         public float expertise { get; set; }
+        public float respect { get; set; }
+        public float explanation { get; set; }
+        public float treatment{ get; set; }
+        public float overall { get; set; }
 
         public int CustomerService_star { get; set; }
         public int professionalism_star { get; set; }
         public int expertise_star { get; set; }
+        public int respect_star { get; set; }
+        public int explanation_star { get; set; }
+        public int treatment_star { get; set; }
+        public int overall_star { get; set; }
 
         public int customerTstar { get; set; }
         public int professionalismTstar { get; set; }
         public int expertiseTstar { get; set; }
+        public int respectTstar { get; set; }
+        public int explanationTstar { get; set; }
+        public int treatmentTstar { get; set; }
+        public int overallTstar { get; set; }
         public float teamAVG { get; set; }
 
     }

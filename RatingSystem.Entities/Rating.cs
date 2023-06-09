@@ -17,6 +17,7 @@ namespace RatingSystem.Entities
         public string Explanation { get; set; }
         public string Treatment { get; set; }
         public string Overall { get; set; }
+        public string Address { get; set; }
         public DateTime Date { get; set; }
     }
 }

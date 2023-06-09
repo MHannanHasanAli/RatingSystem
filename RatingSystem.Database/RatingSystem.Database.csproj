@@ -69,6 +69,14 @@
     <Compile Include="Migrations\202306081549498_attributesadded.designer.cs">
       <DependentUpon>202306081549498_attributesadded.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\202306090342170_attributesAddition.cs" />
+    <Compile Include="Migrations\202306090342170_attributesAddition.designer.cs">
+      <DependentUpon>202306090342170_attributesAddition.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\202306090441358_ipaddress.cs" />
+    <Compile Include="Migrations\202306090441358_ipaddress.designer.cs">
+      <DependentUpon>202306090441358_ipaddress.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="DSContext.cs" />
@@ -92,6 +100,12 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\202306081549498_attributesadded.resx">
       <DependentUpon>202306081549498_attributesadded.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202306090342170_attributesAddition.resx">
+      <DependentUpon>202306090342170_attributesAddition.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202306090441358_ipaddress.resx">
+      <DependentUpon>202306090441358_ipaddress.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

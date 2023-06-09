@@ -101,6 +101,7 @@
                           
                               <input type="hidden" name="Employee" value="@Model.EmployeeFull.Name" id="Employee" />
                               <input type="hidden" name="TeamName" value="@Model.EmployeeFull.TeamName" id="TeamName" />
+                              <input type="hidden" name="Address" value="" id="Address" />
                           
                           <div class="row">
                               <div class="col-2">
@@ -184,14 +185,14 @@
                                           </td>
                                           <td>
                                               <div class="rating-box">
-                                                  <div id="RespectServiceStars" class="stars">
+                                                  <div id="RespectStars" class="stars">
                                                       <span class="star"></span>
                                                       <span class="star"></span>
                                                       <span class="star"></span>
                                                       <span class="star"></span>
                                                       <span class="star"></span>
 
-                                                      <input type="hidden" name="RespectService" id="RespectService" />
+                                                      <input type="hidden" name="Respect" id="Respect" />
                                                   </div>
                                               </div>
                                           </td>
@@ -205,14 +206,14 @@
                                           </td>
                                           <td>
                                               <div class="rating-box">
-                                                  <div id="ExplanationServiceStars" class="stars">
+                                                  <div id="ExplanationStars" class="stars">
                                                       <span class="star"></span>
                                                       <span class="star"></span>
                                                       <span class="star"></span>
                                                       <span class="star"></span>
                                                       <span class="star"></span>
 
-                                                      <input type="hidden" name="ExplanationService" id="ExplanationService" />
+                                                      <input type="hidden" name="Explanation" id="Explanation" />
                                                   </div>
                                               </div>
                                           </td>
@@ -226,14 +227,14 @@
                                           </td>
                                           <td>
                                               <div class="rating-box">
-                                                  <div id="TreatmentServiceStars" class="stars">
+                                                  <div id="TreatmentStars" class="stars">
                                                       <span class="star"></span>
                                                       <span class="star"></span>
                                                       <span class="star"></span>
                                                       <span class="star"></span>
                                                       <span class="star"></span>
 
-                                                      <input type="hidden" name="TreatmentService" id="TreatmentService" />
+                                                      <input type="hidden" name="Treatment" id="Treatment" />
                                                   </div>
                                               </div>
                                           </td>
@@ -247,14 +248,14 @@
                                           </td>
                                           <td>
                                               <div class="rating-box">
-                                                  <div id="OverallServiceStars" class="stars">
+                                                  <div id="OverallStars" class="stars">
                                                       <span class="star"></span>
                                                       <span class="star"></span>
                                                       <span class="star"></span>
                                                       <span class="star"></span>
                                                       <span class="star"></span>
 
-                                                      <input type="hidden" name="OverallService" id="OverallService" />
+                                                      <input type="hidden" name="Overall" id="Overall" />
                                                   </div>
                                               </div>
                                           </td>
@@ -303,11 +304,11 @@
 
         $("#CustomerService").val(Rating);
     });
-    $('#RespectServiceStars span').on('click', function () {
+    $('#RespectStars span').on('click', function () {
         // Remove the active class from all stars
         $(this).siblings().removeClass('active');
 
-        // Add the active class to the clicked star and all previous siblings
+        // Add the active class to the clicked star and all previous siblingsRespectStars
         $(this).addClass('active');
         $(this).prevAll().addClass('active');
 
@@ -319,9 +320,9 @@
         //console.log(index + 1);
         var Rating = index + 1;
 
-        $("#RespectService").val(Rating);
+        $("#Respect").val(Rating);
     });
-    $('#ExplanationServiceStars span').on('click', function () {
+    $('#ExplanationStars span').on('click', function () {
         // Remove the active class from all stars
         $(this).siblings().removeClass('active');
 
@@ -337,9 +338,9 @@
         //console.log(index + 1);
         var Rating = index + 1;
 
-        $("#ExplanationService").val(Rating);
+        $("#Explanation").val(Rating);
     });
-    $('#TreatmentServiceStars span').on('click', function () {
+    $('#TreatmentStars span').on('click', function () {
         // Remove the active class from all stars
         $(this).siblings().removeClass('active');
 
@@ -355,9 +356,9 @@
         //console.log(index + 1);
         var Rating = index + 1;
 
-        $("#TreatmentService").val(Rating);
+        $("#Treatment").val(Rating);
     });
-    $('#OverallServiceStars span').on('click', function () {
+    $('#OverallStars span').on('click', function () {
         // Remove the active class from all stars
         $(this).siblings().removeClass('active');
 
@@ -373,7 +374,7 @@
         //console.log(index + 1);
         var Rating = index + 1;
 
-        $("#OverallService").val(Rating);
+        $("#Overall").val(Rating);
     });
 
     $('#ProfessionalismStars span').on('click', function () {
@@ -414,12 +415,43 @@
         $("#Expertise").val(Rating);
     });
 
+    function getIpAddress() {
+        $.getJSON("https://api.ipify.org?format=json")
+            .done(function (response) {
+                var ipAddress = response.ip.toString();
+                var ipValue = document.getElementById("Address");
+                if (ipValue) {
+                    ipValue.value = ipAddress;
+                }
+                //return ipAddress;
+            })
+            .fail(function (error) {
+                console.log("Error:", error);
+            });
+    }
 
+    //var ipValue = getIpAddress();
+
+    //var inputelement =
+    //function sendIpAddress(ipAddress) {
+    //    $.ajax({
+    //        url: '/Home/SaveIpAddress',
+    //        type: 'POST',
+    //        data: { address: ipAddress },
+    //        success: function (response) {
+    //            alert("SAved");
+    //        },
+    //        error: function (error) {
+    //            alert("Error");
+    //        }
+    //    });
+    //}
     $("#actionBtn").click(function () {
-        $.ajax({
-            url: '@Url.Action("Rating", "Home")',
-            type: "post",
-            data: $("#actionForm").serialize()
+        getIpAddress();
+                $.ajax({
+                    url: '@Url.Action("Rating", "Home")',
+                    type: "post",
+                    data:$("#actionForm").serialize()
         })
             .done(function () {
                 window.location.href = '@Url.Action("Thankyou","Home")';

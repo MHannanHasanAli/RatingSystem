@@ -160,25 +160,36 @@
             font-weight: 600;
             margin-bottom: 20px;
         }
+    .stars span {
+        display: inline-block;
+        font-size: 24px;
+        color: gray;
+        unicode-bidi: bidi-override;
+        direction: rtl;
+    }
 
+    .star {
+        display: inline-block;
+        padding: 1px;
+        cursor: pointer;
+    }
         .rating-box .stars {
             display: flex;
             align-items: center;
             gap: 5px;
             width: 0px;
         }
-
-    .stars i {
-        font-size: 20px;
-        color: #b5b8b1;
-        transition: all 0.2s;
-        cursor: pointer;
-    }
-
-        .stars i.active {
-            color: #ffb851;
-            transform: scale(1.2);
+        .rating-box .star:before {
+            content: "\2605";
         }
+        .rating-box .star.active {
+            color: orange;
+        }
+
+    .stars span.active {
+        color: #ffb851;
+        transform: scale(1.2);
+    }
 </style>
 <div class="row">
     <div class="col-8">
@@ -289,55 +300,55 @@
                                                             <div id="CustomerServiceStars" class="stars">
                                                                 @if (item.CustomerService_star == 1)
                                                                 {
-                                                                    <i class="fa-solid fa-star active"></i>
-                                                                    <i class="fa-solid fa-star"></i>
-                                                                    <i class="fa-solid fa-star"></i>
-                                                                    <i class="fa-solid fa-star"></i>
-                                                                    <i class="fa-solid fa-star"></i>
+                                                                    <span class="star active"></span>
+                                                                    <span class="star"></span>
+                                                                    <span class="star"></span>
+                                                                    <span class="star"></span>
+                                                                    <span class="star"></span>
                                                                 }
                                                                 else if (item.CustomerService_star == 2)
                                                                 {
-                                                                    <i class="fa-solid fa-star active"></i>
-                                                                    <i class="fa-solid fa-star active"></i>
-                                                                    <i class="fa-solid fa-star"></i>
-                                                                    <i class="fa-solid fa-star"></i>
-                                                                    <i class="fa-solid fa-star"></i>
+                                                                    <span class="star active"></span>
+                                                                    <span class="star active"></span>
+                                                                    <span class="star"></span>
+                                                                    <span class="star"></span>
+                                                                    <span class="star"></span>
 
                                                                 }
                                                                 else if (item.CustomerService_star == 3)
                                                                 {
-                                                                    <i class="fa-solid fa-star active"></i>
-                                                                    <i class="fa-solid fa-star active"></i>
-                                                                    <i class="fa-solid fa-star active"></i>
-                                                                    <i class="fa-solid fa-star"></i>
-                                                                    <i class="fa-solid fa-star"></i>
+                                                                    <span class="star active"></span>
+                                                                    <span class="star active"></span>
+                                                                    <span class="star active"></span>
+                                                                    <span class="star"></span>
+                                                                    <span class="star"></span>
 
                                                                 }
                                                                 else if (item.CustomerService_star == 4)
                                                                 {
-                                                                    <i class="fa-solid fa-star active"></i>
-                                                                    <i class="fa-solid fa-star active"></i>
-                                                                    <i class="fa-solid fa-star active"></i>
-                                                                    <i class="fa-solid fa-star active"></i>
-                                                                    <i class="fa-solid fa-star"></i>
+                                                                    <span class="star active"></span>
+                                                                    <span class="star active"></span>
+                                                                    <span class="star active"></span>
+                                                                    <span class="star active"></span>
+                                                                    <span class="star"></span>
 
                                                                 }
                                                                 else if (item.CustomerService_star == 5)
                                                                 {
-                                                                    <i class="fa-solid fa-star active"></i>
-                                                                    <i class="fa-solid fa-star active"></i>
-                                                                    <i class="fa-solid fa-star active"></i>
-                                                                    <i class="fa-solid fa-star active"></i>
-                                                                    <i class="fa-solid fa-star active"></i>
+                                                                    <span class="star active"></span>
+                                                                    <span class="star active"></span>
+                                                                    <span class="star active"></span>
+                                                                    <span class="star active"></span>
+                                                                    <span class="star active"></span>
 
                                                                 }
-                                                                else if (item.professionalism_star == 0)
+                                                                else if (item.CustomerService_star == 0)
                                                                 {
-                                                                    <i class="fa-solid fa-star "></i>
-                                                                    <i class="fa-solid fa-star "></i>
-                                                                    <i class="fa-solid fa-star "></i>
-                                                                    <i class="fa-solid fa-star "></i>
-                                                                    <i class="fa-solid fa-star "></i>
+                                                                    <span class="star"></span>
+                                                                    <span class="star"></span>
+                                                                    <span class="star"></span>
+                                                                    <span class="star"></span>
+                                                                    <span class="star"></span>
 
                                                                 }
                                                             </div>
@@ -359,56 +370,55 @@
                                                             <div class="stars">
                                                                 @if (item.professionalism_star == 1)
                                                                 {
-                                                                    <i class="fa-solid fa-star active"></i>
-                                                                    <i class="fa-solid fa-star"></i>
-                                                                    <i class="fa-solid fa-star"></i>
-                                                                    <i class="fa-solid fa-star"></i>
-                                                                    <i class="fa-solid fa-star"></i>
+                                                                    <span class="star active"></span>
+                                                                    <span class="star"></span>
+                                                                    <span class="star"></span>
+                                                                    <span class="star"></span>
+                                                                    <span class="star"></span>
 
                                                                 }
                                                                 else if (item.professionalism_star == 2)
                                                                 {
-                                                                    <i class="fa-solid fa-star active"></i>
-                                                                    <i class="fa-solid fa-star active"></i>
-                                                                    <i class="fa-solid fa-star"></i>
-                                                                    <i class="fa-solid fa-star"></i>
-                                                                    <i class="fa-solid fa-star"></i>
-
+                                                                    <span class="star active"></span>
+                                                                    <span class="star active"></span>
+                                                                    <span class="star"></span>
+                                                                    <span class="star"></span>
+                                                                    <span class="star"></span>
                                                                 }
                                                                 else if (item.professionalism_star == 3)
                                                                 {
-                                                                    <i class="fa-solid fa-star active"></i>
-                                                                    <i class="fa-solid fa-star active"></i>
-                                                                    <i class="fa-solid fa-star active"></i>
-                                                                    <i class="fa-solid fa-star"></i>
-                                                                    <i class="fa-solid fa-star"></i>
+                                                                    <span class="star active"></span>
+                                                                    <span class="star active"></span>
+                                                                    <span class="star active"></span>
+                                                                    <span class="star"></span>
+                                                                    <span class="star"></span>
 
                                                                 }
                                                                 else if (item.professionalism_star == 4)
                                                                 {
-                                                                    <i class="fa-solid fa-star active"></i>
-                                                                    <i class="fa-solid fa-star active"></i>
-                                                                    <i class="fa-solid fa-star active"></i>
-                                                                    <i class="fa-solid fa-star active"></i>
-                                                                    <i class="fa-solid fa-star"></i>
+                                                                    <span class="star active"></span>
+                                                                    <span class="star active"></span>
+                                                                    <span class="star active"></span>
+                                                                    <span class="star active"></span>
+                                                                    <span class="star"></span>
 
                                                                 }
                                                                 else if (item.professionalism_star == 5)
                                                                 {
-                                                                    <i class="fa-solid fa-star active"></i>
-                                                                    <i class="fa-solid fa-star active"></i>
-                                                                    <i class="fa-solid fa-star active"></i>
-                                                                    <i class="fa-solid fa-star active"></i>
-                                                                    <i class="fa-solid fa-star active"></i>
+                                                                    <span class="star active"></span>
+                                                                    <span class="star active"></span>
+                                                                    <span class="star active"></span>
+                                                                    <span class="star active"></span>
+                                                                    <span class="star active"></span>
 
                                                                 }
                                                                 else if (item.professionalism_star == 0)
                                                                 {
-                                                                    <i class="fa-solid fa-star "></i>
-                                                                    <i class="fa-solid fa-star "></i>
-                                                                    <i class="fa-solid fa-star "></i>
-                                                                    <i class="fa-solid fa-star "></i>
-                                                                    <i class="fa-solid fa-star "></i>
+                                                                    <span class="star"></span>
+                                                                    <span class="star"></span>
+                                                                    <span class="star"></span>
+                                                                    <span class="star"></span>
+                                                                    <span class="star"></span>
 
                                                                 }
                                                             </div>
@@ -430,56 +440,56 @@
                                                             <div class="stars">
                                                                 @if (item.expertise_star == 1)
                                                                 {
-                                                                    <i class="fa-solid fa-star active"></i>
-                                                                    <i class="fa-solid fa-star"></i>
-                                                                    <i class="fa-solid fa-star"></i>
-                                                                    <i class="fa-solid fa-star"></i>
-                                                                    <i class="fa-solid fa-star"></i>
+                                                                    <span class="star active"></span>
+                                                                    <span class="star"></span>
+                                                                    <span class="star"></span>
+                                                                    <span class="star"></span>
+                                                                    <span class="star"></span>
 
                                                                 }
                                                                 else if (item.expertise_star == 2)
                                                                 {
-                                                                    <i class="fa-solid fa-star active"></i>
-                                                                    <i class="fa-solid fa-star active"></i>
-                                                                    <i class="fa-solid fa-star"></i>
-                                                                    <i class="fa-solid fa-star"></i>
-                                                                    <i class="fa-solid fa-star"></i>
+                                                                    <span class="star active"></span>
+                                                                    <span class="star active"></span>
+                                                                    <span class="star"></span>
+                                                                    <span class="star"></span>
+                                                                    <span class="star"></span>
 
                                                                 }
                                                                 else if (item.expertise_star == 3)
                                                                 {
-                                                                    <i class="fa-solid fa-star active"></i>
-                                                                    <i class="fa-solid fa-star active"></i>
-                                                                    <i class="fa-solid fa-star active"></i>
-                                                                    <i class="fa-solid fa-star"></i>
-                                                                    <i class="fa-solid fa-star"></i>
+                                                                    <span class="star active"></span>
+                                                                    <span class="star active"></span>
+                                                                    <span class="star active"></span>
+                                                                    <span class="star"></span>
+                                                                    <span class="star"></span>
 
                                                                 }
                                                                 else if (item.expertise_star == 4)
                                                                 {
-                                                                    <i class="fa-solid fa-star active"></i>
-                                                                    <i class="fa-solid fa-star active"></i>
-                                                                    <i class="fa-solid fa-star active"></i>
-                                                                    <i class="fa-solid fa-star active"></i>
-                                                                    <i class="fa-solid fa-star"></i>
+                                                                    <span class="star active"></span>
+                                                                    <span class="star active"></span>
+                                                                    <span class="star active"></span>
+                                                                    <span class="star active"></span>
+                                                                    <span class="star"></span>
 
                                                                 }
                                                                 else if (item.expertise_star == 5)
                                                                 {
-                                                                    <i class="fa-solid fa-star active"></i>
-                                                                    <i class="fa-solid fa-star active"></i>
-                                                                    <i class="fa-solid fa-star active"></i>
-                                                                    <i class="fa-solid fa-star active"></i>
-                                                                    <i class="fa-solid fa-star active"></i>
+                                                                    <span class="star active"></span>
+                                                                    <span class="star active"></span>
+                                                                    <span class="star active"></span>
+                                                                    <span class="star active"></span>
+                                                                    <span class="star active"></span>
 
                                                                 }
-                                                                else if (item.professionalism_star == 0)
+                                                                else if (item.expertise_star == 0)
                                                                 {
-                                                                    <i class="fa-solid fa-star "></i>
-                                                                    <i class="fa-solid fa-star "></i>
-                                                                    <i class="fa-solid fa-star "></i>
-                                                                    <i class="fa-solid fa-star "></i>
-                                                                    <i class="fa-solid fa-star "></i>
+                                                                    <span class="star"></span>
+                                                                    <span class="star"></span>
+                                                                    <span class="star"></span>
+                                                                    <span class="star"></span>
+                                                                    <span class="star"></span>
 
                                                                 }
                                                             </div>
@@ -487,6 +497,280 @@
                                                     </div>
                                                 </div>
                                             </li>
+                                            <li class="list-group-item">
+                                                <div class="row">
+                                                    <div style="padding-top: 20px; padding-right: 90px" class="col-3">
+                                                        Respect:
+                                                    </div>
+                                                    <div class="col-9">
+                                                        <div id="respectStars" class="rating-box">
+
+                                                            <div class="stars">
+                                                                @if (item.respect_star == 1)
+                                                                {
+                                                                    <span class="star active"></span>
+                                                                    <span class="star"></span>
+                                                                    <span class="star"></span>
+                                                                    <span class="star"></span>
+                                                                    <span class="star"></span>
+
+                                                                }
+                                                                else if (item.respect_star == 2)
+                                                                {
+                                                                    <span class="star active"></span>
+                                                                    <span class="star active"></span>
+                                                                    <span class="star"></span>
+                                                                    <span class="star"></span>
+                                                                    <span class="star"></span>
+
+                                                                }
+                                                                else if (item.respect_star == 3)
+                                                                {
+                                                                    <span class="star active"></span>
+                                                                    <span class="star active"></span>
+                                                                    <span class="star active"></span>
+                                                                    <span class="star"></span>
+                                                                    <span class="star"></span>
+
+                                                                }
+                                                                else if (item.respect_star == 4)
+                                                                {
+                                                                    <span class="star active"></span>
+                                                                    <span class="star active"></span>
+                                                                    <span class="star active"></span>
+                                                                    <span class="star active"></span>
+                                                                    <span class="star"></span>
+
+                                                                }
+                                                                else if (item.respect_star == 5)
+                                                                {
+                                                                    <span class="star active"></span>
+                                                                    <span class="star active"></span>
+                                                                    <span class="star active"></span>
+                                                                    <span class="star active"></span>
+                                                                    <span class="star active"></span>
+
+                                                                }
+                                                                else if (item.respect_star == 0)
+                                                                {
+                                                                    <span class="star"></span>
+                                                                    <span class="star"></span>
+                                                                    <span class="star"></span>
+                                                                    <span class="star"></span>
+                                                                    <span class="star"></span>
+
+                                                                }
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </li>
+                                            <li class="list-group-item">
+                                                <div class="row">
+                                                    <div style="padding-top: 20px; padding-right: 90px" class="col-3">
+                                                        Explanation:
+                                                    </div>
+                                                    <div class="col-9">
+                                                        <div id="explanationStars" class="rating-box">
+
+                                                            <div class="stars">
+                                                                @if (item.explanation_star == 1)
+                                                                {
+                                                                    <span class="star active"></span>
+                                                                    <span class="star"></span>
+                                                                    <span class="star"></span>
+                                                                    <span class="star"></span>
+                                                                    <span class="star"></span>
+
+                                                                }
+                                                                else if (item.explanation_star == 2)
+                                                                {
+                                                                    <span class="star active"></span>
+                                                                    <span class="star active"></span>
+                                                                    <span class="star"></span>
+                                                                    <span class="star"></span>
+                                                                    <span class="star"></span>
+
+                                                                }
+                                                                else if (item.explanation_star == 3)
+                                                                {
+                                                                    <span class="star active"></span>
+                                                                    <span class="star active"></span>
+                                                                    <span class="star active"></span>
+                                                                    <span class="star"></span>
+                                                                    <span class="star"></span>
+
+                                                                }
+                                                                else if (item.explanation_star == 4)
+                                                                {
+                                                                    <span class="star active"></span>
+                                                                    <span class="star active"></span>
+                                                                    <span class="star active"></span>
+                                                                    <span class="star active"></span>
+                                                                    <span class="star"></span>
+
+                                                                }
+                                                                else if (item.explanation_star == 5)
+                                                                {
+                                                                    <span class="star active"></span>
+                                                                    <span class="star active"></span>
+                                                                    <span class="star active"></span>
+                                                                    <span class="star active"></span>
+                                                                    <span class="star active"></span>
+
+                                                                }
+                                                                else if (item.explanation_star == 0)
+                                                                {
+                                                                    <span class="star"></span>
+                                                                    <span class="star"></span>
+                                                                    <span class="star"></span>
+                                                                    <span class="star"></span>
+                                                                    <span class="star"></span>
+
+                                                                }
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </li>
+                                            <li class="list-group-item">
+                                                <div class="row">
+                                                    <div style="padding-top: 20px; padding-right: 90px" class="col-3">
+                                                        Treatment:
+                                                    </div>
+                                                    <div class="col-9">
+                                                        <div id="treatmentStars" class="rating-box">
+
+                                                            <div class="stars">
+                                                                @if (item.treatment_star == 1)
+                                                                {
+                                                                    <span class="star active"></span>
+                                                                    <span class="star"></span>
+                                                                    <span class="star"></span>
+                                                                    <span class="star"></span>
+                                                                    <span class="star"></span>
+
+                                                                }
+                                                                else if (item.treatment_star == 2)
+                                                                {
+                                                                    <span class="star active"></span>
+                                                                    <span class="star active"></span>
+                                                                    <span class="star"></span>
+                                                                    <span class="star"></span>
+                                                                    <span class="star"></span>
+
+                                                                }
+                                                                else if (item.treatment_star == 3)
+                                                                {
+                                                                    <span class="star active"></span>
+                                                                    <span class="star active"></span>
+                                                                    <span class="star active"></span>
+                                                                    <span class="star"></span>
+                                                                    <span class="star"></span>
+
+                                                                }
+                                                                else if (item.treatment_star == 4)
+                                                                {
+                                                                    <span class="star active"></span>
+                                                                    <span class="star active"></span>
+                                                                    <span class="star active"></span>
+                                                                    <span class="star active"></span>
+                                                                    <span class="star"></span>
+
+                                                                }
+                                                                else if (item.treatment_star == 5)
+                                                                {
+                                                                    <span class="star active"></span>
+                                                                    <span class="star active"></span>
+                                                                    <span class="star active"></span>
+                                                                    <span class="star active"></span>
+                                                                    <span class="star active"></span>
+
+                                                                }
+                                                                else if (item.treatment_star == 0)
+                                                                {
+                                                                    <span class="star"></span>
+                                                                    <span class="star"></span>
+                                                                    <span class="star"></span>
+                                                                    <span class="star"></span>
+                                                                    <span class="star"></span>
+
+                                                                }
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </li>
+                                            <li class="list-group-item">
+                                                <div class="row">
+                                                    <div style="padding-top: 20px; padding-right: 90px" class="col-3">
+                                                        Overall:
+                                                    </div>
+                                                    <div class="col-9">
+                                                        <div id="overallStars" class="rating-box">
+
+                                                            <div class="stars">
+                                                                @if (item.overall_star == 1)
+                                                                {
+                                                                    <span class="star active"></span>
+                                                                    <span class="star"></span>
+                                                                    <span class="star"></span>
+                                                                    <span class="star"></span>
+                                                                    <span class="star"></span>
+
+                                                                }
+                                                                else if (item.overall_star == 2)
+                                                                {
+                                                                    <span class="star active"></span>
+                                                                    <span class="star active"></span>
+                                                                    <span class="star"></span>
+                                                                    <span class="star"></span>
+                                                                    <span class="star"></span>
+
+                                                                }
+                                                                else if (item.overall_star == 3)
+                                                                {
+                                                                    <span class="star active"></span>
+                                                                    <span class="star active"></span>
+                                                                    <span class="star active"></span>
+                                                                    <span class="star"></span>
+                                                                    <span class="star"></span>
+
+                                                                }
+                                                                else if (item.overall_star == 4)
+                                                                {
+                                                                    <span class="star active"></span>
+                                                                    <span class="star active"></span>
+                                                                    <span class="star active"></span>
+                                                                    <span class="star active"></span>
+                                                                    <span class="star"></span>
+
+                                                                }
+                                                                else if (item.overall_star == 5)
+                                                                {
+                                                                    <span class="star active"></span>
+                                                                    <span class="star active"></span>
+                                                                    <span class="star active"></span>
+                                                                    <span class="star active"></span>
+                                                                    <span class="star active"></span>
+
+                                                                }
+                                                                else if (item.overall_star == 0)
+                                                                {
+                                                                    <span class="star"></span>
+                                                                    <span class="star"></span>
+                                                                    <span class="star"></span>
+                                                                    <span class="star"></span>
+                                                                    <span class="star"></span>
+
+                                                                }
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </li>
+
+
                                         </ul>
                                     </td>
                                     <td>
@@ -554,55 +838,55 @@
                                                                 <div id="CustomerServiceStars" class="stars">
                                                                     @if (item.CustomerService_star == 1)
                                                                     {
-                                                                        <i class="fa-solid fa-star active"></i>
-                                                                        <i class="fa-solid fa-star"></i>
-                                                                        <i class="fa-solid fa-star"></i>
-                                                                        <i class="fa-solid fa-star"></i>
-                                                                        <i class="fa-solid fa-star"></i>
+                                                                        <span class="star active"></span>
+                                                                        <span class="star"></span>
+                                                                        <span class="star"></span>
+                                                                        <span class="star"></span>
+                                                                        <span class="star"></span>
                                                                     }
                                                                     else if (item.CustomerService_star == 2)
                                                                     {
-                                                                        <i class="fa-solid fa-star active"></i>
-                                                                        <i class="fa-solid fa-star active"></i>
-                                                                        <i class="fa-solid fa-star"></i>
-                                                                        <i class="fa-solid fa-star"></i>
-                                                                        <i class="fa-solid fa-star"></i>
+                                                                        <span class="star active"></span>
+                                                                        <span class="star active"></span>
+                                                                        <span class="star"></span>
+                                                                        <span class="star"></span>
+                                                                        <span class="star"></span>
 
                                                                     }
                                                                     else if (item.CustomerService_star == 3)
                                                                     {
-                                                                        <i class="fa-solid fa-star active"></i>
-                                                                        <i class="fa-solid fa-star active"></i>
-                                                                        <i class="fa-solid fa-star active"></i>
-                                                                        <i class="fa-solid fa-star"></i>
-                                                                        <i class="fa-solid fa-star"></i>
+                                                                        <span class="star active"></span>
+                                                                        <span class="star active"></span>
+                                                                        <span class="star active"></span>
+                                                                        <span class="star"></span>
+                                                                        <span class="star"></span>
 
                                                                     }
                                                                     else if (item.CustomerService_star == 4)
                                                                     {
-                                                                        <i class="fa-solid fa-star active"></i>
-                                                                        <i class="fa-solid fa-star active"></i>
-                                                                        <i class="fa-solid fa-star active"></i>
-                                                                        <i class="fa-solid fa-star active"></i>
-                                                                        <i class="fa-solid fa-star"></i>
+                                                                        <span class="star active"></span>
+                                                                        <span class="star active"></span>
+                                                                        <span class="star active"></span>
+                                                                        <span class="star active"></span>
+                                                                        <span class="star"></span>
 
                                                                     }
                                                                     else if (item.CustomerService_star == 5)
                                                                     {
-                                                                        <i class="fa-solid fa-star active"></i>
-                                                                        <i class="fa-solid fa-star active"></i>
-                                                                        <i class="fa-solid fa-star active"></i>
-                                                                        <i class="fa-solid fa-star active"></i>
-                                                                        <i class="fa-solid fa-star active"></i>
+                                                                        <span class="star active"></span>
+                                                                        <span class="star active"></span>
+                                                                        <span class="star active"></span>
+                                                                        <span class="star active"></span>
+                                                                        <span class="star active"></span>
 
                                                                     }
-                                                                    else if (item.professionalism_star == 0)
+                                                                    else if (item.CustomerService_star == 0)
                                                                     {
-                                                                        <i class="fa-solid fa-star "></i>
-                                                                        <i class="fa-solid fa-star "></i>
-                                                                        <i class="fa-solid fa-star "></i>
-                                                                        <i class="fa-solid fa-star "></i>
-                                                                        <i class="fa-solid fa-star "></i>
+                                                                        <span class="star"></span>
+                                                                        <span class="star"></span>
+                                                                        <span class="star"></span>
+                                                                        <span class="star"></span>
+                                                                        <span class="star"></span>
 
                                                                     }
                                                                 </div>
@@ -624,56 +908,55 @@
                                                                 <div class="stars">
                                                                     @if (item.professionalism_star == 1)
                                                                     {
-                                                                        <i class="fa-solid fa-star active"></i>
-                                                                        <i class="fa-solid fa-star"></i>
-                                                                        <i class="fa-solid fa-star"></i>
-                                                                        <i class="fa-solid fa-star"></i>
-                                                                        <i class="fa-solid fa-star"></i>
+                                                                        <span class="star active"></span>
+                                                                        <span class="star"></span>
+                                                                        <span class="star"></span>
+                                                                        <span class="star"></span>
+                                                                        <span class="star"></span>
 
                                                                     }
                                                                     else if (item.professionalism_star == 2)
                                                                     {
-                                                                        <i class="fa-solid fa-star active"></i>
-                                                                        <i class="fa-solid fa-star active"></i>
-                                                                        <i class="fa-solid fa-star"></i>
-                                                                        <i class="fa-solid fa-star"></i>
-                                                                        <i class="fa-solid fa-star"></i>
-
+                                                                        <span class="star active"></span>
+                                                                        <span class="star active"></span>
+                                                                        <span class="star"></span>
+                                                                        <span class="star"></span>
+                                                                        <span class="star"></span>
                                                                     }
                                                                     else if (item.professionalism_star == 3)
                                                                     {
-                                                                        <i class="fa-solid fa-star active"></i>
-                                                                        <i class="fa-solid fa-star active"></i>
-                                                                        <i class="fa-solid fa-star active"></i>
-                                                                        <i class="fa-solid fa-star"></i>
-                                                                        <i class="fa-solid fa-star"></i>
+                                                                        <span class="star active"></span>
+                                                                        <span class="star active"></span>
+                                                                        <span class="star active"></span>
+                                                                        <span class="star"></span>
+                                                                        <span class="star"></span>
 
                                                                     }
                                                                     else if (item.professionalism_star == 4)
                                                                     {
-                                                                        <i class="fa-solid fa-star active"></i>
-                                                                        <i class="fa-solid fa-star active"></i>
-                                                                        <i class="fa-solid fa-star active"></i>
-                                                                        <i class="fa-solid fa-star active"></i>
-                                                                        <i class="fa-solid fa-star"></i>
+                                                                        <span class="star active"></span>
+                                                                        <span class="star active"></span>
+                                                                        <span class="star active"></span>
+                                                                        <span class="star active"></span>
+                                                                        <span class="star"></span>
 
                                                                     }
                                                                     else if (item.professionalism_star == 5)
                                                                     {
-                                                                        <i class="fa-solid fa-star active"></i>
-                                                                        <i class="fa-solid fa-star active"></i>
-                                                                        <i class="fa-solid fa-star active"></i>
-                                                                        <i class="fa-solid fa-star active"></i>
-                                                                        <i class="fa-solid fa-star active"></i>
+                                                                        <span class="star active"></span>
+                                                                        <span class="star active"></span>
+                                                                        <span class="star active"></span>
+                                                                        <span class="star active"></span>
+                                                                        <span class="star active"></span>
 
                                                                     }
                                                                     else if (item.professionalism_star == 0)
                                                                     {
-                                                                        <i class="fa-solid fa-star "></i>
-                                                                        <i class="fa-solid fa-star "></i>
-                                                                        <i class="fa-solid fa-star "></i>
-                                                                        <i class="fa-solid fa-star "></i>
-                                                                        <i class="fa-solid fa-star "></i>
+                                                                        <span class="star"></span>
+                                                                        <span class="star"></span>
+                                                                        <span class="star"></span>
+                                                                        <span class="star"></span>
+                                                                        <span class="star"></span>
 
                                                                     }
                                                                 </div>
@@ -695,56 +978,56 @@
                                                                 <div class="stars">
                                                                     @if (item.expertise_star == 1)
                                                                     {
-                                                                        <i class="fa-solid fa-star active"></i>
-                                                                        <i class="fa-solid fa-star"></i>
-                                                                        <i class="fa-solid fa-star"></i>
-                                                                        <i class="fa-solid fa-star"></i>
-                                                                        <i class="fa-solid fa-star"></i>
+                                                                        <span class="star active"></span>
+                                                                        <span class="star"></span>
+                                                                        <span class="star"></span>
+                                                                        <span class="star"></span>
+                                                                        <span class="star"></span>
 
                                                                     }
                                                                     else if (item.expertise_star == 2)
                                                                     {
-                                                                        <i class="fa-solid fa-star active"></i>
-                                                                        <i class="fa-solid fa-star active"></i>
-                                                                        <i class="fa-solid fa-star"></i>
-                                                                        <i class="fa-solid fa-star"></i>
-                                                                        <i class="fa-solid fa-star"></i>
+                                                                        <span class="star active"></span>
+                                                                        <span class="star active"></span>
+                                                                        <span class="star"></span>
+                                                                        <span class="star"></span>
+                                                                        <span class="star"></span>
 
                                                                     }
                                                                     else if (item.expertise_star == 3)
                                                                     {
-                                                                        <i class="fa-solid fa-star active"></i>
-                                                                        <i class="fa-solid fa-star active"></i>
-                                                                        <i class="fa-solid fa-star active"></i>
-                                                                        <i class="fa-solid fa-star"></i>
-                                                                        <i class="fa-solid fa-star"></i>
+                                                                        <span class="star active"></span>
+                                                                        <span class="star active"></span>
+                                                                        <span class="star active"></span>
+                                                                        <span class="star"></span>
+                                                                        <span class="star"></span>
 
                                                                     }
                                                                     else if (item.expertise_star == 4)
                                                                     {
-                                                                        <i class="fa-solid fa-star active"></i>
-                                                                        <i class="fa-solid fa-star active"></i>
-                                                                        <i class="fa-solid fa-star active"></i>
-                                                                        <i class="fa-solid fa-star active"></i>
-                                                                        <i class="fa-solid fa-star"></i>
+                                                                        <span class="star active"></span>
+                                                                        <span class="star active"></span>
+                                                                        <span class="star active"></span>
+                                                                        <span class="star active"></span>
+                                                                        <span class="star"></span>
 
                                                                     }
                                                                     else if (item.expertise_star == 5)
                                                                     {
-                                                                        <i class="fa-solid fa-star active"></i>
-                                                                        <i class="fa-solid fa-star active"></i>
-                                                                        <i class="fa-solid fa-star active"></i>
-                                                                        <i class="fa-solid fa-star active"></i>
-                                                                        <i class="fa-solid fa-star active"></i>
+                                                                        <span class="star active"></span>
+                                                                        <span class="star active"></span>
+                                                                        <span class="star active"></span>
+                                                                        <span class="star active"></span>
+                                                                        <span class="star active"></span>
 
                                                                     }
-                                                                    else if (item.professionalism_star == 0)
+                                                                    else if (item.expertise_star == 0)
                                                                     {
-                                                                        <i class="fa-solid fa-star "></i>
-                                                                        <i class="fa-solid fa-star "></i>
-                                                                        <i class="fa-solid fa-star "></i>
-                                                                        <i class="fa-solid fa-star "></i>
-                                                                        <i class="fa-solid fa-star "></i>
+                                                                        <span class="star"></span>
+                                                                        <span class="star"></span>
+                                                                        <span class="star"></span>
+                                                                        <span class="star"></span>
+                                                                        <span class="star"></span>
 
                                                                     }
                                                                 </div>
@@ -752,6 +1035,279 @@
                                                         </div>
                                                     </div>
                                                 </li>
+                                                <li class="list-group-item">
+                                                    <div class="row">
+                                                        <div style="padding-top:20px; padding-right:90px" class="col-3">
+                                                            Respect:
+                                                        </div>
+                                                        <div class="col-9">
+                                                            <div id="respectStars" class="rating-box">
+
+                                                                <div class="stars">
+                                                                    @if (item.respect_star == 1)
+                                                                    {
+                                                                        <span class="star active"></span>
+                                                                        <span class="star"></span>
+                                                                        <span class="star"></span>
+                                                                        <span class="star"></span>
+                                                                        <span class="star"></span>
+
+                                                                    }
+                                                                    else if (item.respect_star == 2)
+                                                                    {
+                                                                        <span class="star active"></span>
+                                                                        <span class="star active"></span>
+                                                                        <span class="star"></span>
+                                                                        <span class="star"></span>
+                                                                        <span class="star"></span>
+
+                                                                    }
+                                                                    else if (item.respect_star == 3)
+                                                                    {
+                                                                        <span class="star active"></span>
+                                                                        <span class="star active"></span>
+                                                                        <span class="star active"></span>
+                                                                        <span class="star"></span>
+                                                                        <span class="star"></span>
+
+                                                                    }
+                                                                    else if (item.respect_star == 4)
+                                                                    {
+                                                                        <span class="star active"></span>
+                                                                        <span class="star active"></span>
+                                                                        <span class="star active"></span>
+                                                                        <span class="star active"></span>
+                                                                        <span class="star"></span>
+
+                                                                    }
+                                                                    else if (item.respect_star == 5)
+                                                                    {
+                                                                        <span class="star active"></span>
+                                                                        <span class="star active"></span>
+                                                                        <span class="star active"></span>
+                                                                        <span class="star active"></span>
+                                                                        <span class="star active"></span>
+
+                                                                    }
+                                                                    else if (item.respect_star == 0)
+                                                                    {
+                                                                        <span class="star"></span>
+                                                                        <span class="star"></span>
+                                                                        <span class="star"></span>
+                                                                        <span class="star"></span>
+                                                                        <span class="star"></span>
+
+                                                                    }
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </li>
+                                                <li class="list-group-item">
+                                                    <div class="row">
+                                                        <div style="padding-top:20px; padding-right:90px" class="col-3">
+                                                            Explanation:
+                                                        </div>
+                                                        <div class="col-9">
+                                                            <div id="explanationStars" class="rating-box">
+
+                                                                <div class="stars">
+                                                                    @if (item.explanation_star == 1)
+                                                                    {
+                                                                        <span class="star active"></span>
+                                                                        <span class="star"></span>
+                                                                        <span class="star"></span>
+                                                                        <span class="star"></span>
+                                                                        <span class="star"></span>
+
+                                                                    }
+                                                                    else if (item.explanation_star == 2)
+                                                                    {
+                                                                        <span class="star active"></span>
+                                                                        <span class="star active"></span>
+                                                                        <span class="star"></span>
+                                                                        <span class="star"></span>
+                                                                        <span class="star"></span>
+
+                                                                    }
+                                                                    else if (item.explanation_star == 3)
+                                                                    {
+                                                                        <span class="star active"></span>
+                                                                        <span class="star active"></span>
+                                                                        <span class="star active"></span>
+                                                                        <span class="star"></span>
+                                                                        <span class="star"></span>
+
+                                                                    }
+                                                                    else if (item.explanation_star == 4)
+                                                                    {
+                                                                        <span class="star active"></span>
+                                                                        <span class="star active"></span>
+                                                                        <span class="star active"></span>
+                                                                        <span class="star active"></span>
+                                                                        <span class="star"></span>
+
+                                                                    }
+                                                                    else if (item.explanation_star == 5)
+                                                                    {
+                                                                        <span class="star active"></span>
+                                                                        <span class="star active"></span>
+                                                                        <span class="star active"></span>
+                                                                        <span class="star active"></span>
+                                                                        <span class="star active"></span>
+
+                                                                    }
+                                                                    else if (item.explanation_star == 0)
+                                                                    {
+                                                                        <span class="star"></span>
+                                                                        <span class="star"></span>
+                                                                        <span class="star"></span>
+                                                                        <span class="star"></span>
+                                                                        <span class="star"></span>
+
+                                                                    }
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </li>
+                                                <li class="list-group-item">
+                                                    <div class="row">
+                                                        <div style="padding-top:20px; padding-right:90px" class="col-3">
+                                                            Treatment:
+                                                        </div>
+                                                        <div class="col-9">
+                                                            <div id="treatmentStars" class="rating-box">
+
+                                                                <div class="stars">
+                                                                    @if (item.treatment_star == 1)
+                                                                    {
+                                                                        <span class="star active"></span>
+                                                                        <span class="star"></span>
+                                                                        <span class="star"></span>
+                                                                        <span class="star"></span>
+                                                                        <span class="star"></span>
+
+                                                                    }
+                                                                    else if (item.treatment_star == 2)
+                                                                    {
+                                                                        <span class="star active"></span>
+                                                                        <span class="star active"></span>
+                                                                        <span class="star"></span>
+                                                                        <span class="star"></span>
+                                                                        <span class="star"></span>
+
+                                                                    }
+                                                                    else if (item.treatment_star == 3)
+                                                                    {
+                                                                        <span class="star active"></span>
+                                                                        <span class="star active"></span>
+                                                                        <span class="star active"></span>
+                                                                        <span class="star"></span>
+                                                                        <span class="star"></span>
+
+                                                                    }
+                                                                    else if (item.treatment_star == 4)
+                                                                    {
+                                                                        <span class="star active"></span>
+                                                                        <span class="star active"></span>
+                                                                        <span class="star active"></span>
+                                                                        <span class="star active"></span>
+                                                                        <span class="star"></span>
+
+                                                                    }
+                                                                    else if (item.treatment_star == 5)
+                                                                    {
+                                                                        <span class="star active"></span>
+                                                                        <span class="star active"></span>
+                                                                        <span class="star active"></span>
+                                                                        <span class="star active"></span>
+                                                                        <span class="star active"></span>
+
+                                                                    }
+                                                                    else if (item.treatment_star == 0)
+                                                                    {
+                                                                        <span class="star"></span>
+                                                                        <span class="star"></span>
+                                                                        <span class="star"></span>
+                                                                        <span class="star"></span>
+                                                                        <span class="star"></span>
+
+                                                                    }
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </li>
+                                                <li class="list-group-item">
+                                                    <div class="row">
+                                                        <div style="padding-top:20px; padding-right:90px" class="col-3">
+                                                            overall:
+                                                        </div>
+                                                        <div class="col-9">
+                                                            <div id="overallStars" class="rating-box">
+
+                                                                <div class="stars">
+                                                                    @if (item.overall_star == 1)
+                                                                    {
+                                                                        <span class="star active"></span>
+                                                                        <span class="star"></span>
+                                                                        <span class="star"></span>
+                                                                        <span class="star"></span>
+                                                                        <span class="star"></span>
+
+                                                                    }
+                                                                    else if (item.overall_star == 2)
+                                                                    {
+                                                                        <span class="star active"></span>
+                                                                        <span class="star active"></span>
+                                                                        <span class="star"></span>
+                                                                        <span class="star"></span>
+                                                                        <span class="star"></span>
+
+                                                                    }
+                                                                    else if (item.overall_star == 3)
+                                                                    {
+                                                                        <span class="star active"></span>
+                                                                        <span class="star active"></span>
+                                                                        <span class="star active"></span>
+                                                                        <span class="star"></span>
+                                                                        <span class="star"></span>
+
+                                                                    }
+                                                                    else if (item.overall_star == 4)
+                                                                    {
+                                                                        <span class="star active"></span>
+                                                                        <span class="star active"></span>
+                                                                        <span class="star active"></span>
+                                                                        <span class="star active"></span>
+                                                                        <span class="star"></span>
+
+                                                                    }
+                                                                    else if (item.overall_star == 5)
+                                                                    {
+                                                                        <span class="star active"></span>
+                                                                        <span class="star active"></span>
+                                                                        <span class="star active"></span>
+                                                                        <span class="star active"></span>
+                                                                        <span class="star active"></span>
+
+                                                                    }
+                                                                    else if (item.overall_star == 0)
+                                                                    {
+                                                                        <span class="star"></span>
+                                                                        <span class="star"></span>
+                                                                        <span class="star"></span>
+                                                                        <span class="star"></span>
+                                                                        <span class="star"></span>
+
+                                                                    }
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </li>
+
                                             </ul>
                                         </td>
                                         <td>
