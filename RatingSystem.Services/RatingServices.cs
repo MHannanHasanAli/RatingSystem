@@ -126,7 +126,7 @@ namespace RatingSystem.Services
         }
 
 
-
+   
 
 
 
@@ -170,13 +170,14 @@ namespace RatingSystem.Services
             }
         }
 
-        public Rating Getip(string ip)
+        public string Getip( int id)
         {
             using(var context = new DSContext())
             {
 
-                return context.Ratings.Find(ip);
-
+               var data = GetRating(id);
+                var data2 = data.Address;
+                return data2.ToString();
 
             }
         }

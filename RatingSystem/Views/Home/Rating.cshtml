@@ -101,7 +101,7 @@
                           
                               <input type="hidden" name="Employee" value="@Model.EmployeeFull.Name" id="Employee" />
                               <input type="hidden" name="TeamName" value="@Model.EmployeeFull.TeamName" id="TeamName" />
-                              <input type="hidden" name="Address" value="" id="Address" />
+                              <input type="hidden" name="Address"  id="Address" />
                           
                           <div class="row">
                               <div class="col-2">
@@ -111,6 +111,7 @@
                                   <div id="Box" class="text-center">
                                       <h2 id="empname">@Model.EmployeeFull.Name</h2><br />
                                       <h6 id="desgn">@Model.EmployeeFull.Designation</h6>
+
                                   </div>
                               </div>
                               <div class="col-8">
@@ -286,6 +287,9 @@
 
 
 <script>
+    $(document).ready(function () {
+        getIpAddress();
+    });
     $('#CustomerServiceStars span').on('click', function () {
         // Remove the active class from all stars
         $(this).siblings().removeClass('active');
@@ -376,7 +380,6 @@
 
         $("#Overall").val(Rating);
     });
-
     $('#ProfessionalismStars span').on('click', function () {
         // Remove the active class from all stars
         $(this).siblings().removeClass('active');
@@ -395,7 +398,6 @@
 
         $("#Professionalism").val(Rating);
     });
-
     $('#ExpertiseStars span').on('click', function () {
         // Remove the active class from all stars
         $(this).siblings().removeClass('active');
@@ -419,10 +421,8 @@
         $.getJSON("https://api.ipify.org?format=json")
             .done(function (response) {
                 var ipAddress = response.ip.toString();
-                var ipValue = document.getElementById("Address");
-                if (ipValue) {
-                    ipValue.value = ipAddress;
-                }
+                //document.getElementById("Address") = ipAddress;
+                $("#Address").val(ipAddress);
                 //return ipAddress;
             })
             .fail(function (error) {
@@ -447,7 +447,7 @@
     //    });
     //}
     $("#actionBtn").click(function () {
-        getIpAddress();
+       
                 $.ajax({
                     url: '@Url.Action("Rating", "Home")',
                     type: "post",

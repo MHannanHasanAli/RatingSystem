@@ -98,7 +98,7 @@ namespace RatingSystem.Controllers
             rating.Address = model.Address;
             rating.Date = DateTime.Now;
 
-            var ipChecker = RatingServices.Instance.Getip(rating.Address);
+            var ipChecker = RatingServices.Instance.Getip(rating.ID);
 
             if( ipChecker != null)
             {
